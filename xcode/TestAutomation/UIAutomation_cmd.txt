@@ -1,0 +1,3 @@
+instruments -t "/Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/PlugIns/AutomationInstrument.bundle/Contents/Resources/Automation.tracetemplate" "/Users/shriamin/Library/Application Support/iPhone Simulator/6.1/Applications/CE25C518-D272-44FB-A022-0C6DAED94911/TestAutomation.app" -e UIASCRIPT "/Users/shriamin/Development/xcode_scripts/TestAutomation/TestAutomation/TestUI/Test-1.js" 
+
+

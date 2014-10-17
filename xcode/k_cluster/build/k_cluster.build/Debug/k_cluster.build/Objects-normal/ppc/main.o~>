@@ -1,0 +1,6 @@
+/Users/shrikant/Development/k_cluster/main.m: In function 'main':
+/Users/shrikant/Development/k_cluster/main.m:16: error: 'cout' undeclared (first use in this function)
+/Users/shrikant/Development/k_cluster/main.m:16: error: (Each undeclared identifier is reported only once
+/Users/shrikant/Development/k_cluster/main.m:16: error: for each function it appears in.)
+/Users/shrikant/Development/k_cluster/main.m:18: warning: implicit declaration of function 'backtrace'
+/Users/shrikant/Development/k_cluster/main.m:14: warning: unused variable 'v'
