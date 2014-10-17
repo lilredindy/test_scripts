@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Suite1">
+  <test name="test1">
+    <classes>
+       <class name="TestngWordpressExample"/>
+          <methods>
+          	<include name="launchSite" />
+          	<include name="loginAsAdmin" />
+          	<include name="navigateNewPost" />
+          	<include name="writeBlogPost" />
+          	<include name="publishBlogPost" />
+          	<include name="verifyBlogPost" />
+        </methods>
+    </classes>
+  </test>
+</suite>
