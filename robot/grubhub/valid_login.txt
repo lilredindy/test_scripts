@@ -1,0 +1,15 @@
+*** Settings ***
+Documentation     A test suite with a single test for valid login.
+...
+...               This test has a workflow that is created using keywords in
+...               the imported resource file.
+Resource          resource.txt
+
+*** Test Cases ***
+Valid Login
+   Open Browser To Main Page
+   Main Page Should Be Open
+   Click Link   xpath=/html/body/div[2]/div[1]/div/div/div[1]/div[2]/div[2]/a[1]
+   Sign In    lilredindy@gmail.com    maverick
+   Change Account Info
+   #[Teardown]    Close Browser
