@@ -1,0 +1,46 @@
+//SAME SET
+SELECT a.first_name, ai.first_name FROM actor AS a JOIN actor_info AS ai ON a.actor_id=ai.actor_id;
+SELECT a.first_name, ai.first_name FROM actor AS a JOIN actor_info AS ai WHERE a.actor_id=ai.actor_id;
+
+//SAME SET
+SELECT a.first_name, ai.last_name, fa.film_id FROM actor AS a INNER JOIN actor_info AS ai ON a.actor_id=ai.actor_id INNER JOIN film_actor as fa ON a.actor_id=fa.actor_id;
+SELECT a.first_name, ai.last_name, fa.film_id FROM actor AS a INNER JOIN actor_info AS ai ON a.actor_id=ai.actor_id INNER JOIN film_actor as fa ON ai.actor_id=fa.actor_id;
+
+SELECT DISTINCT a.actor_id, ai.actor_id, fa.actor_id, a.first_name, ai.last_name FROM actor AS a LEFT JOIN actor_info AS ai ON a.actor_id=ai.actor_id LEFT JOIN film_actor as fa ON a.actor_id=fa.actor_id;
+
+INSERT INTO actor (first_name,last_name,date_of_birth) VALUES ('bob', 'dylan', '2012-5-24');
+UPDATE actor SET date_of_birth='1941-5-24' WHERE actor_id=202;
+
+
+mysql> show columns in film_actor;
++-------------+----------------------+------+-----+-------------------+-----------------------------+
+| Field       | Type                 | Null | Key | Default           | Extra                       |
++-------------+----------------------+------+-----+-------------------+-----------------------------+
+| actor_id    | smallint(5) unsigned | NO   | PRI | NULL              |                             |
+| film_id     | smallint(5) unsigned | NO   | PRI | NULL              |                             |
+| last_update | timestamp            | NO   |     | CURRENT_TIMESTAMP | on update CURRENT_TIMESTAMP |
++-------------+----------------------+------+-----+-------------------+-----------------------------+
+3 rows in set (0.00 sec)
+
+mysql> show columns in actor;
++---------------+----------------------+------+-----+-------------------+-----------------------------+
+| Field         | Type                 | Null | Key | Default           | Extra                       |
++---------------+----------------------+------+-----+-------------------+-----------------------------+
+| actor_id      | smallint(5) unsigned | NO   | PRI | NULL              | auto_increment              |
+| first_name    | varchar(45)          | NO   |     | NULL              |                             |
+| last_name     | varchar(45)          | NO   | MUL | NULL              |                             |
+| last_update   | timestamp            | NO   |     | CURRENT_TIMESTAMP | on update CURRENT_TIMESTAMP |
+| date_of_birth | date                 | YES  |     | 2012-01-01        |                             |
++---------------+----------------------+------+-----+-------------------+-----------------------------+
+5 rows in set (0.01 sec)
+
+mysql> show columns in actor_info;
++------------+----------------------+------+-----+---------+-------+
+| Field      | Type                 | Null | Key | Default | Extra |
++------------+----------------------+------+-----+---------+-------+
+| actor_id   | smallint(5) unsigned | NO   |     | 0       |       |
+| first_name | varchar(45)          | NO   |     | NULL    |       |
+| last_name  | varchar(45)          | NO   |     | NULL    |       |
+| film_info  | varchar(341)         | YES  |     | NULL    |       |
++------------+----------------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
