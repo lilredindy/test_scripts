@@ -20,6 +20,7 @@ Open Browser To Main Page
     Open Browser    ${URL}    ${BROWSER}  remote_url=${REMOTE}  desired_capabilities=${DESIRED CAPABILITIES}
     Maximize Browser Window
     Set Selenium Speed    ${DELAY}
+    Main Page Should Be Open
 
 Main Page Should Be Open
     Title Should Be    Food Delivery | Restaurant Takeout | Order Food Online | GrubHub
@@ -30,16 +31,25 @@ Go To Main Page
 
 Sign In
     [Arguments]    ${email}    ${password}
-
+    Click Link   css=a.login-link
     Input Text    id=login-email   ${email}
     Input Text    id=login-password    ${password}
     Click Button   css=input.primaryActionButton.submit
     User Should Be Logged In
 
-
 User Should Be Logged In
     Location Should Be      https://www.grubhub.com/
     Wait Until Page Contains Element  css=div.status-loggedin
+
+Change Email
+
+Change Password
+
+Change First Name
+
+Change Last Name
+
+Change Display Name
 
 Change Account Info
     Click Element  id=userInfoQuickNav
