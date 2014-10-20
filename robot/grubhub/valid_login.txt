@@ -9,5 +9,7 @@ Resource          resource.txt
 Valid Login
    Open Browser To Main Page
    Sign In    lilredindy@gmail.com    maverick
-   Change Account Info
-   #[Teardown]    Close Browser
+   [Teardown]    Close Browser
+
+
+Change Name
