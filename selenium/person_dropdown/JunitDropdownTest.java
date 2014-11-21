@@ -19,15 +19,21 @@ private static WebDriver driver;
 @BeforeClass
 public static void setUp(){
 driver = new FirefoxDriver();
-driver.get("http://localhost:7272/person.html");
+driver.get("http://localhost:7272/person_dropdown/person.html");
 }
  
 // quit from WebDriver
 @AfterClass
 public static void tearDown(){
-//driver.quit();
+driver.quit();
 }
  
+@Test @Ignore
+public void verifyTitleText() throws Exception{
+	WebElement title = driver.findElement(By.tagName("title"));
+	Assert.assertEquals(title, "this_title");
+}
+
 @Test
 public void findPersonPeterGriffin()throws Exception{
  
@@ -38,27 +44,31 @@ public void findPersonPeterGriffin()throws Exception{
 @Test
 public void selectThirdPersonFromList() throws Exception{
 
-	WebElement opt3 = driver.findElement(By.cssSelector("body > form:nth-child(1) > select:nth-child(1) > option:nth-child(4)"));
+	WebElement opt3 = driver.findElement(By.cssSelector("option[value='3']"));
 	opt3.click();
-
-	Assert.assertTrue(opt3.isSelected());
-
+	Assert.assertEquals(opt3.getText(), "Lois Griffin");
 }
 
 @Test
-public void verifyAllPersonsInList() throws Exception{
+public void verifyNumOfPersonsInList() throws Exception{
 	Select s = new Select(driver.findElement(By.name("users")));
 	List<WebElement> persons = s.getOptions();
 	Assert.assertEquals(persons.size(), 5);
-
 }
 
 @Test
-public void verifyUserIsShown() throws Exception{
+public void verifyNumOfPersonsInList2() throws Exception{
+	WebElement u = (driver.findElement(By.name("users")));
+	List<WebElement> persons = u.findElements(By.tagName("option"));
+	Assert.assertEquals(persons.size(), 5);
+}
+
+@Test
+public void verifyUserOutputIsShown() throws Exception{
 	Select s = new Select(driver.findElement(By.name("users")));
 	s.selectByValue("4");
 
-	WebDriverWait wait = new WebDriverWait(driver, 0000);
+	WebDriverWait wait = new WebDriverWait(driver, 5000);
 	WebElement eTable = wait.until(ExpectedConditions.presenceOfElementLocated(By.tagName("table")));
 	// wait for 5 seconds
 	//Thread.sleep(5000);
@@ -66,7 +76,7 @@ public void verifyUserIsShown() throws Exception{
 	//WebElement eTable = driver.findElement(By.id("txtHint"));
 	String tableText = eTable.getText();
 	System.out.println(tableText);
-	Assert.assertTrue(tableText.contains("Joseph"));
+	Assert.assertTrue(tableText.contains("joseph"));
 }
 
 }

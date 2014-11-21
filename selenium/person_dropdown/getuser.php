@@ -1,14 +1,19 @@
 <?php
 $q = intval($_GET['q']);
 
-$con = mysqli_connect('localhost','root','maverick','test');
-if (!$con) {
-  die('Could not connect: ' . mysqli_error($con));
+$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=maverick");
+if (!$conn) {
+  echo "An error occurred connecting.\n";
+  exit;
 }
 
-mysqli_select_db($con,"ajax_demo");
-$sql="SELECT * FROM user WHERE id = '".$q."'";
-$result = mysqli_query($con,$sql);
+
+
+$result = pg_query($conn, "SELECT firstname, lastname, age, hometown, job FROM foo where id=$q");
+if (!$result) {
+  echo "An error occurred querying.\n";
+  exit;
+}
 
 echo "<table border='1'>
 <tr>
@@ -19,16 +24,17 @@ echo "<table border='1'>
 <th>Job</th>
 </tr>";
 
-while($row = mysqli_fetch_array($result)) {
+
+while ($row = pg_fetch_row($result)) {	
   echo "<tr>";
-  echo "<td>" . $row['firstname'] . "</td>";
-  echo "<td>" . $row['lastname'] . "</td>";
-  echo "<td>" . $row['age'] . "</td>";
-  echo "<td>" . $row['hometown'] . "</td>";
-  echo "<td>" . $row['job'] . "</td>";
+  echo "<td>" . $row[0] . "</td>";
+  echo "<td>" . $row[1] . "</td>";
+  echo "<td>" . $row[2] . "</td>";
+  echo "<td>" . $row[3] . "</td>";
+  echo "<td>" . $row[4] . "</td>";
   echo "</tr>";
 }
+
 echo "</table>";
 
-mysqli_close($con);
 ?> 
