@@ -1,0 +1,45 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+//import org.testng.annotations.*;
+//import org.testng.Assert;
+import org.junit.Test;
+import org.junit.Assert;
+import org.junit.*;
+
+public class gmailTest {
+	 
+	// create a WebDriver
+	private static WebDriver driver;
+	 
+	// use the Firefox browser and go to the wikipedia site
+	@BeforeClass
+	public static void setUp() {
+		driver = new FirefoxDriver();
+		driver.get("http://www.gmail.com");
+		//driver.manage().deleteAllCookies(); //delete all cookies
+
+	}
+	 
+	// quit from WebDriver
+	@AfterClass
+	public static void tearDown(){
+		//driver.quit();
+	}
+	 
+
+	private void gmailLogin(String username, String password){
+
+		driver.findElement(By.id("Email")).sendKeys(username);
+		driver.findElement(By.id("Passwd")).sendKeys(password);
+		driver.findElement(By.id("signIn")).click();
+
+	}
+
+	@Test
+	public void login()throws Exception{
+		gmailLogin("lilredindy", "flower45");
+	}
+
+}
