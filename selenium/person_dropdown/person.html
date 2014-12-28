@@ -1,11 +1,24 @@
 <html>
 <head>
+
 <script>
-function showUser(str) {
-  if (str=="") {
+function createCookie(){
+  document.cookie="username=John Doe";
+}
+</script>
+
+
+<script>
+function showUser(index) {
+  if (index=="") {
     document.getElementById("txtHint").innerHTML="";
     return;
   }
+
+  username = document.getElementById('user-select').children.item(index).text;
+  document.cookie="username="+username; //delete this
+
+
   if (window.XMLHttpRequest) {
     // code for IE7+, Firefox, Chrome, Opera, Safari
     xmlhttp=new XMLHttpRequest();
@@ -14,28 +27,54 @@ function showUser(str) {
   }
   xmlhttp.onreadystatechange=function() {
     if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-      document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+      document.getElementById("txtHint2").innerHTML=xmlhttp.responseText;
     }
   }
-  xmlhttp.open("GET","getuser.php?q="+str,true);
-  xmlhttp.send();
+
+  //xmlhttp.open("GET","getuser.php?q="+index,true); //async is true
+  //xmlhttp.send();
+
+  /*
+  Note that $_POST is NOT set for all HTTP POST operations,  but only for specific types of POST operations.  I have not been able to find documentation, but here's what I've found so far.
+
+  $_POST _is_ set for:
+
+  Content-Type: application/x-www-form-urlencoded
+  */
+  xmlhttp.open("POST","getuser.php",true); //async is true
+  xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+  xmlhttp.send("q="+index);
+  
 }
 </script>
+
 </head>
-<body>
+<body onload="createCookie()">
 <title>this_title</title>
 
+<button onclick='getElementById("demo").innerHTML=Date()'>The time is?</button>
+<label id="demo">xxxxxx</label>
+
 <form>
-<select name="users" onchange="showUser(this.value)">
-<option value="">Select a person:</option>
-<option value="2">Peter Griffin</option>
-<option value="3">Lois Griffin</option>
-<option value="4">Joseph Swanson</option>
-<option value="5">Glenn Quagmire</option>
+<select id="user-select" name="users" onchange="showUser(this.value)">
+<option value="0">Select a person:</option>
+<option value="1">Peter Griffin</option>
+<option value="2">Lois Griffin</option>
+<option value="3">Joseph Swanson</option>
+<option value="4">Glenn Quagmire</option>
 </select>
 </form>
 <br>
-<div id="txtHint"><b>Person info will be listed here.</b></div>
 
+
+
+<div id="txtHint1"><b></b></div>
+
+<div id="txtHint2"><b>Person info will be listed here.</b></div>
+
+
+<script>
+  y = 1; x = 2; x += y; 
+</script>
 </body>
 </html> 

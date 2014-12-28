@@ -40,6 +40,8 @@ public class gmailTest {
 	@Test
 	public void login()throws Exception{
 		gmailLogin("lilredindy", "flower45");
+		//driver.findElement(By.partialLinkText("Forth Estate")).click();
+
 	}
 
 }

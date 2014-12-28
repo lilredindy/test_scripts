@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20141121 14:20:10.296" generator="Robot 2.8.5 (Python 2.7.4 on win32)">
+<suite source="C:\Documents and Settings\chuck\Desktop\shri\Development\test_scripts\robot\grubhub\valid_login.txt" id="s1" name="Valid Login">
+<test id="s1-t1" name="Valid Login">
+<kw type="kw" name="resource.Open Browser To Main Page">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Open Browser">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>remote_url=${REMOTE}</arg>
+<arg>desired_capabilities=${DESIRED CAPABILITIES}</arg>
+</arguments>
+<msg timestamp="20141121 14:20:12.765" level="INFO">Opening browser 'Firefox' to base url 'http://www.grubhub.com/'</msg>
+<status status="PASS" endtime="20141121 14:20:39.078" starttime="20141121 14:20:12.765"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Maximize Browser Window">
+<doc>Maximizes current browser window.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20141121 14:20:40.062" starttime="20141121 14:20:39.109"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Set Selenium Speed">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY}</arg>
+</arguments>
+<status status="PASS" endtime="20141121 14:20:40.062" starttime="20141121 14:20:40.062"></status>
+</kw>
+<kw type="kw" name="resource.Main Page Should Be Open">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Title Should Be">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>Food Delivery | Restaurant Takeout | Order Food Online | GrubHub</arg>
+</arguments>
+<msg timestamp="20141121 14:20:40.093" level="INFO">Page title is 'Food Delivery | Restaurant Takeout | Order Food Online | GrubHub'.</msg>
+<status status="PASS" endtime="20141121 14:20:40.093" starttime="20141121 14:20:40.062"></status>
+</kw>
+<status status="PASS" endtime="20141121 14:20:40.093" starttime="20141121 14:20:40.062"></status>
+</kw>
+<status status="PASS" endtime="20141121 14:20:40.093" starttime="20141121 14:20:12.750"></status>
+</kw>
+<kw type="kw" name="resource.Sign In">
+<doc></doc>
+<arguments>
+<arg>lilredindy@gmail.com</arg>
+<arg>maverick</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Click Link">
+<doc>Clicks a link identified by locator.</doc>
+<arguments>
+<arg>css=a.login-link</arg>
+</arguments>
+<msg timestamp="20141121 14:20:40.093" level="INFO">Clicking link 'css=a.login-link'.</msg>
+<status status="PASS" endtime="20141121 14:20:40.812" starttime="20141121 14:20:40.093"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Input Text">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=login-email</arg>
+<arg>${email}</arg>
+</arguments>
+<msg timestamp="20141121 14:20:40.812" level="INFO">Typing text 'lilredindy@gmail.com' into text field 'id=login-email'</msg>
+<status status="PASS" endtime="20141121 14:20:42.406" starttime="20141121 14:20:40.812"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Input Text">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=login-password</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20141121 14:20:42.421" level="INFO">Typing text 'maverick' into text field 'id=login-password'</msg>
+<status status="PASS" endtime="20141121 14:20:42.609" starttime="20141121 14:20:42.406"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Button">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>css=input.primaryActionButton.submit</arg>
+</arguments>
+<msg timestamp="20141121 14:20:42.609" level="INFO">Clicking button 'css=input.primaryActionButton.submit'.</msg>
+<status status="PASS" endtime="20141121 14:20:42.796" starttime="20141121 14:20:42.609"></status>
+</kw>
+<kw type="kw" name="resource.User Should Be Logged In">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Selenium2Library.Location Should Be">
+<doc>Verifies that current URL is exactly `url`.</doc>
+<arguments>
+<arg>https://www.grubhub.com/</arg>
+</arguments>
+<msg timestamp="20141121 14:20:42.812" level="INFO">Current location is 'https://www.grubhub.com/'.</msg>
+<status status="PASS" endtime="20141121 14:20:42.812" starttime="20141121 14:20:42.796"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>css=div.status-loggedin</arg>
+</arguments>
+<status status="PASS" endtime="20141121 14:20:42.843" starttime="20141121 14:20:42.812"></status>
+</kw>
+<status status="PASS" endtime="20141121 14:20:42.843" starttime="20141121 14:20:42.796"></status>
+</kw>
+<status status="PASS" endtime="20141121 14:20:42.843" starttime="20141121 14:20:40.093"></status>
+</kw>
+<kw type="teardown" name="Selenium2Library.Close Browser">
+<doc>Closes the current browser.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20141121 14:20:43.093" level="INFO">[Error 5] Access is denied: 'c:\\docume~1\\chuck\\locals~1\\temp\\tmptxlayi\\webdriver-py-profilecopy\\cookies.sqlite-shm'</msg>
+<status status="PASS" endtime="20141121 14:20:43.093" starttime="20141121 14:20:42.843"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20141121 14:20:43.093" critical="yes" starttime="20141121 14:20:12.750"></status>
+</test>
+<test id="s1-t2" name="Change Name">
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20141121 14:20:43.109" critical="yes" starttime="20141121 14:20:43.109">Test case contains no keywords.</status>
+</test>
+<doc>A test suite with a single test for valid login.
+
+This test has a workflow that is created using keywords in
+the imported resource file.</doc>
+<metadata>
+</metadata>
+<status status="FAIL" endtime="20141121 14:20:43.125" starttime="20141121 14:20:10.296"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="1">Critical Tests</stat>
+<stat fail="1" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="1" pass="1" id="s1" name="Valid Login">Valid Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,12 +1,17 @@
 <?php
-$q = intval($_GET['q']);
+
+sleep(1);
+
+$q = intval($_POST['q']);
+echo $_POST['q'];
+echo $q;
+
 
 $conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=maverick");
 if (!$conn) {
   echo "An error occurred connecting.\n";
   exit;
 }
-
 
 
 $result = pg_query($conn, "SELECT firstname, lastname, age, hometown, job FROM foo where id=$q");
