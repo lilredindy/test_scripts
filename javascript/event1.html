@@ -1,0 +1,14 @@
+
+<p id='my_p' onclick="change_text()"> hello </p>
+
+<script>
+
+//document.getElementById("my_p").onclick = function(e) { if (!e) var e = window.event; e.target.style.backgroundColor = '#f00';}
+//document.getElementById("my_p").onclick = change_text;
+
+function change_text(e){
+
+	//document.getElementById('my_p').innerHTML = "goodbye";
+	e.target.innerHTML = "goodbye";
+}
+</script>
