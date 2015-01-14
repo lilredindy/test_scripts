@@ -1,5 +1,6 @@
 import unittest
 from selenium import webdriver
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 print('hello')
 
@@ -7,7 +8,9 @@ class HugsTestCase(unittest.TestCase):
 
 	def setUp(self):
 		print("hello world")
-		self.driver = webdriver.Firefox()
+		self.driver = webdriver.Remote( 
+   				command_executor='http://127.0.0.1:4444/wd/hub', 
+   				desired_capabilities=DesiredCapabilities.FIREFOX) 
 
 	def test_hello_world(self):
 		# Go to codepad.org
@@ -26,7 +29,7 @@ class HugsTestCase(unittest.TestCase):
 		submit_button.click()
 		 
 		# Make this an actual test. 
-		self.assertTrue(True)
+		self.assertTrue("Hello, WorldS!" in self.driver.page_source)
 
 	def tearDown(self):
 		print("bye bye")
