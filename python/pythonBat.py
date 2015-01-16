@@ -12,19 +12,35 @@ print double_char("423423")
 
 print "-------------------------------"
 
-def string_match(a, b):
+'''
+/html/body/div[3]/div/div[2]/a
+/html/body/div[3]/div/div[2]/a
+
+/html/body/div[3]/div/div[8]/div/form/div/input[1]
+/html/body/div[3]/div/div[8]/div/form/div/input[1]
+
+css selector notation 1: "input#email.required.email"
+css selector notation 2: "input[id=email]"
+'''
+
+def centered_average(nums):
+	min_num = nums[0]
+	max_num = nums[0]
+
+	for i in nums:
+		if (i > max_num):
+			max_num = i
+		if (i < min_num):
+			min_num = i
+	
+	
+
+
+centered_average([2,2,2,222,2])
+
+foo = 23232323
+
+print foo[3]
+
+
   
-  if (len(a) < 2):
-  	return 0
-
-  if (len(a) > len(b)):
-    length = len(a)
-  else:
-    length = len(b)
-  count = 0
-  for i in range(0, length-1):
-    if ((a[i] == b[i]) and (a[i+1] == b[i+1])):
-      count += 1
-  return count
-
-print string_match("z", "z")
