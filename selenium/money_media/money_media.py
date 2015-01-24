@@ -24,13 +24,14 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 import time, traceback
+import pdb
 
 class moneyMedia(unittest.TestCase):
 
 	def setUp(self): 
-		#chrome_path = "C:\\Documents and Settings\\chuck\Desktop\\shri\\Development\\test_tools\\selenium\\chromedriver.exe"
-		#self.driver = webdriver.Chrome(chrome_path) 
-		self.driver = webdriver.Firefox()
+		chrome_path = "C:\\Documents and Settings\\chuck\Desktop\\shri\\Development\\test_tools\\selenium\\chromedriver.exe"
+		self.driver = webdriver.Chrome(chrome_path) 
+		#self.driver = webdriver.Firefox()
 		self.lib = moneyMediaLib(self.driver)
 		self.driver.implicitly_wait(10) #waits for element to appear in DOM
 		self.driver.get("http://www.financialadvisoriq.com/")
@@ -49,6 +50,7 @@ class moneyMedia(unittest.TestCase):
 		pass
 
 	def test_scenario1(self):
+		pdb.set_trace()
 
 		self.lib.login("qa-test@money-media.com", "money")
 

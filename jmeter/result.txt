@@ -1,0 +1,3 @@
+0,0,JUnit Request,9999,"An unexpected error occured
+Error -- testFindElements(org.apache.jmeter.protocol.java.sampler.JUnitSampler$AnnotatedTestCase): Could not initialize class org.apache.http.impl.conn.ManagedHttpClientConnectionFactory
+",Thread Group 1-1,text,false,2385,1,1,0

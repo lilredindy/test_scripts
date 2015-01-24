@@ -10,7 +10,13 @@ public class Dog {
    
    	private static void woof2 (){
 
-		System.out.println("woof");
+		System.out.println("woof2");
+
+	}
+
+	public void woof3 (){
+
+		System.out.println("woof3");
 
 	}
 
@@ -19,14 +25,14 @@ public class Dog {
 	
 
   	public static void main(String args[]) {
-    System.out.println("Main inside dog");
+	    System.out.println("Main inside dog");
 
 
 
-    woof();
-    woof2();
+	    woof();
+	    woof2();
 
-    //woof3();
+	    //woof3();
 
 	}
 }
