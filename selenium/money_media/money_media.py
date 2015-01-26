@@ -24,7 +24,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 import time, traceback
-import pdb
 
 class moneyMedia(unittest.TestCase):
 
@@ -50,8 +49,6 @@ class moneyMedia(unittest.TestCase):
 		pass
 
 	def test_scenario1(self):
-		pdb.set_trace()
-
 		self.lib.login("qa-test@money-media.com", "money")
 
 		menu_link = self.driver.find_element_by_css_selector("#navigation > div:nth-child(1) > div:nth-child(2) > a:nth-child(1)")
