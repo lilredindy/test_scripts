@@ -1,9 +1,14 @@
 Feature:  this is a rad feature
 
 Scenario Outline: Blenders
-   Given I put <thing> in a blender
+   Given I put "<thing>" in a blender
     when I switch the blender on
-    then it should transform into <other thing>
+    then it should transform into "<other thing>"
+
+Examples:
+	| thing	| other thing |
+	| foo | bar|
+
 
  Examples: Amphibians
    | thing         | other thing |
@@ -15,3 +20,4 @@ Scenario Outline: Blenders
    | Galaxy Nexus  | toxic waste |
 
 
+ 
