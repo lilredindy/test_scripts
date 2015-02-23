@@ -2,7 +2,7 @@ def double_char(str):
   
   a = []
   for i in list(str):
-    a.append(i)
+    a.append(i) 
     a.append(i)
   
   return ''.join(a)

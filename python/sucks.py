@@ -18,7 +18,7 @@ print make_complex("jobs", 2)
 
 print "-------------------------"
 
-foo = {'key1': 'value1', 'key2': 'value2'}
+foo = {'key1': 'value1', 'key2': 'value2', 'key3': 'value3'}
 
 for key in foo:
 	print foo[key]
