@@ -10,6 +10,9 @@ class XYZ():
 		self.x = foo()
 		self.y = bar()
 
+	def foobar(self):
+		print "foobar"
 
 xyz = XYZ()
 
+xyz.foobar()

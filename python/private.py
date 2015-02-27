@@ -11,9 +11,13 @@ class Foo(object):
 		print "bar is super-private...get's name-mangaling...run-time error "
 
 	def _bar(self):
-		print "bar is semi-private...no run-time error"
+		print "bar is semi-private, no run-time error"
 
+	def bar(self):
+		print "bar is public, it works"
 
 f = Foo()
-f.__bar()
+f.bar()
+f._bar()
+#f.__bar()
 
