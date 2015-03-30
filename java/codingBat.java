@@ -7,9 +7,93 @@ public class codingBat {
 public static void main(String [ ] args)
 
 {
-    int[] x = {2, 1, 1, 2, 1};
-    System.out.println(canBalance(x));
+    //int[] x = {2, 1, 1, 2, 1};
+    //System.out.println(canBalance(x));
+
+    int[] nums = {5};
+    System.out.println(splitOdd10(nums));
 }
+
+
+public static boolean splitOdd10(int[] nums) {
+
+  if (nums.length == 0)
+    return false;
+  if (nums.length == 1 && ((nums[0] % 2) != 0))
+    return true;
+
+  
+  int[] grp1 = new int[nums.length];
+  int[] grp2 = new int[nums.length];
+
+  
+  System.out.println("grp1: " + java.util.Arrays.toString(grp1));
+  System.out.println("grp2: " + java.util.Arrays.toString(grp2));
+  System.out.println("======================================"); 
+  
+
+  int small_counter = 0;
+  int big_counter = 0;
+ 
+  
+  while (big_counter != nums.length){
+    
+    while (small_counter != nums.length){
+      
+      for (int i = 0; i < nums.length; ++ i) {
+
+        if (i >= big_counter && i <= small_counter)
+          grp1[i] = nums[i];
+        else 
+          grp2[i] = nums[i]; 
+      
+      }
+        
+      
+      System.out.println("big counter is at: " + big_counter);      
+      System.out.println("small counter is at: " + small_counter);
+      System.out.println("grp1: " + java.util.Arrays.toString(grp1));
+      System.out.println("grp2: " + java.util.Arrays.toString(grp2));
+      System.out.println("======================================"); 
+      
+
+      if (checkGroups(grp1, grp2))
+        return true;
+      
+      ++small_counter;
+
+      java.util.Arrays.fill(grp1, 0);
+      java.util.Arrays.fill(grp2, 0);
+    }
+    
+    
+    ++big_counter;
+    small_counter = big_counter;
+  } 
+   
+  return false;
+}
+
+
+public static boolean checkGroups(int[] group1, int[] group2){
+  int sum_grp1 = 0;
+  int sum_grp2 = 0;
+
+  for (int i = 0; i < group1.length; ++ i)
+    sum_grp1 += group1[i];
+    
+  for (int j = 0; j < group2.length; ++j)  
+    sum_grp2 += group2[j];
+  
+  if ((sum_grp1 % 10 == 0) && (sum_grp2 % 2 != 0))
+    return true;
+  else
+    return false; 
+}
+
+
+
+
 
 
 

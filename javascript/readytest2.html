@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>ready demo</title>
+<style>
+p {
+color: red;
+}
+</style>
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+ // executes when HTML-Document is loaded and DOM is ready
+ alert("document is ready");
+});
+</script>
+
+
+
+<script>
+$(function() {
+$( "p" ).text( "The DOM is now loaded." );
+});
+</script>
+
+</head>
+
+<body>
+
+
+<script>
+  setTimeout(continueExecution, 0000) //wait ten seconds before continuing
+  function continueExecution(){
+  	alert("javascript executes after DOM is ready")
+  }
+</script>
+
+
+<script type="text/javascript">
+$(function() {
+ // executes when HTML-Document is loaded and DOM is ready
+ alert("document is ready2");
+});
+</script>
+
+
+
+
+<p>Not loaded yet.</p>
+
+
+</body>
+</html>
