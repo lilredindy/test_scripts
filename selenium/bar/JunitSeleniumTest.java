@@ -2,7 +2,7 @@ package bar;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.sele  nium.WebElement;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 //import org.testng.annotations.*;
 //import org.testng.Assert;

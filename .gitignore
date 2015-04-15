@@ -1,2 +1,4 @@
 *.class
 *.pyc
+selenium/test-output/*.*
+selenium/grubhub/test-output/*.*

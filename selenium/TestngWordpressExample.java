@@ -2,6 +2,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -17,9 +19,12 @@ WebDriver driver;
 // use the Firefox browser and go to the wikipedia site
 @BeforeClass
 public void setUp() throws Exception{
-driver = new FirefoxDriver();
-//driver = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), DesiredCapabilities.firefox());
 
+    String chrome_path = "C:\\Documents and Settings\\chuck\\Desktop\\shri\\Development\\test_tools\\selenium\\chromedriver.exe";
+    System.setProperty("webdriver.chrome.driver", chrome_path);
+    WebDriver driver = new ChromeDriver();
+    //driver = new FirefoxDriver();
+    //driver = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), DesiredCapabilities.firefox());
 }
  
 // quit from WebDriver
