@@ -15,7 +15,7 @@ public class moneyMediaTest {
 		driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get("http://www.financialadvisoriq.com/?login=1");
-		driver.findElement(By.cssSelector("input#email.required.email")).sendKeys("hell");
+		driver.findElement(By.cssSelector("input#email.required.email")).sendKeys("heck");
 		driver.quit();
 
 	}

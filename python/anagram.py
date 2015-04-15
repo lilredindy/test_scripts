@@ -1,9 +1,12 @@
 string1 = "sussingt"
 string2 = "tungisss"
 
+
+
+#this is the anagram algorithm 
+#time-complexity is O(2n)
 d1 = dict()
 d2 = dict()
-
 
 for i in string1:
 	if (i in d1.keys()):
@@ -52,6 +55,9 @@ print shared_items
 
 #below is just random python testing
 print "--------------------------------"
+
+
+
 #iteritems() works 2 ways
 #unpacks as tuple or,
 #unpacks as key, value
@@ -68,7 +74,7 @@ t = t  + (2,2,2)
 print t
 
 
-
+#why lists don't work, b/c order is important
 string1 = "sussingt"
 string2 = "tungisss"
 
