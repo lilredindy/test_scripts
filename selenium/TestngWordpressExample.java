@@ -20,10 +20,10 @@ WebDriver driver;
 @BeforeClass
 public void setUp() throws Exception{
 
-    String chrome_path = "C:\\Documents and Settings\\chuck\\Desktop\\shri\\Development\\test_tools\\selenium\\chromedriver.exe";
-    System.setProperty("webdriver.chrome.driver", chrome_path);
-    WebDriver driver = new ChromeDriver();
-    //driver = new FirefoxDriver();
+    //String chrome_path = "C:\\Documents and Settings\\chuck\\Desktop\\shri\\Development\\test_tools\\selenium\\chromedriver.exe";
+   // System.setProperty("webdriver.chrome.driver", chrome_path);
+   // WebDriver driver = new ChromeDriver();
+    driver = new FirefoxDriver();
     //driver = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), DesiredCapabilities.firefox());
 }
  

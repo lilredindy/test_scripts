@@ -10,6 +10,7 @@ import org.junit.Test;
 import org.junit.Assert;
 import org.junit.*;
 
+
 public class googleTest {
 	 
 	// create a WebDriver
@@ -18,13 +19,13 @@ public class googleTest {
 	// use the Firefox browser and go to the wikipedia site
 	@BeforeClass
 	public static void setUp() {
-		//driver = new FirefoxDriver();
-		String chrome_path = "C:\\Documents and Settings\\chuck\\Desktop\\shri\\Development\\test_tools\\selenium\\chromedriver.exe";
-		System.setProperty("webdriver.chrome.driver", chrome_path);
-		WebDriver driver = new ChromeDriver();
+		driver = new FirefoxDriver();
+		
+		//String chrome_path = "C:\\Documents and Settings\\chuck\\Desktop\\shri\\Development\\test_tools\\selenium\\chromedriver.exe";
+		//System.setProperty("webdriver.chrome.driver", chrome_path);
+		//WebDriver driver = new ChromeDriver();
 		driver.get("http://www.google.com");
 		//driver.manage().deleteAllCookies(); //delete all cookies
-
 	}
 	 
 	// quit from WebDriver
@@ -37,11 +38,8 @@ public class googleTest {
 	@Test
 	public void testGoogle()throws Exception{
 		//driver.findElement(By.cssSelector("input.gbqfif")).sendKeys("tut+ code");
-		driver.findElement(By.cssSelector("input[name=q]")).sendKeys("tut+ code");
-		driver.findElement(By.cssSelector("button.gbqfb")).click();
+ 		driver.findElement(By.cssSelector("button[name=btnG]")).click();
 		Thread.sleep(5000); //dont use this method of waiting
 		driver.findElement(By.linkText("Tuts+ Free Code Tutorials")).click();
-
 	}
-
 }
