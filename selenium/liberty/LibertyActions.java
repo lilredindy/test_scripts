@@ -2,6 +2,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.*;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.*;
+
 
 public class LibertyActions
 {
@@ -54,6 +56,15 @@ public class LibertyActions
 	public void selectCountry(int index){
 		Select s = new Select(this.country);
 		s.selectByIndex(index);
+	}
+
+	public void selectCountry(String value){
+		Select s = new Select(this.country);
+		List<WebElement> options = s.getOptions();
+		for (WebElement option: options)
+			if (option.getAttribute("value").equals(value))
+				option.click();
+		//s.selectByValue(value);
 	}
 
 	public void selectDay(int index){
