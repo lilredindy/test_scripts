@@ -57,28 +57,25 @@ public class LibertyTests{
 
 	@Test 
 	public void invoke_happy_path()throws Exception{
-		actions.selectCountry("AFG"); //afghanistan
-		//actions.change_country_btn.click();
-		//actions.cancel_country_btn.click();
-		/*
-		actions.selectDay(3);
-		actions.selectMonth(3);
-		actions.selectYear(13); //must be 18 yrs old to register?
-		actions.firstname.sendKeys("shrika");
-		actions.lastname.sendKeys("amin11");
-		actions.email.sendKeys("bobby.camp11@gmail.com");
-		actions.confirm_email.sendKeys("bobby.camp11@gmail.com");
+		//need to refactor this into a fill_form method
+		actions.selectCountry("USA"); 		
+		actions.selectDay("31");
+		actions.selectMonth("3");
+		actions.selectYear("1976"); //must be 18 yrs old to register?
+		actions.firstname.sendKeys("tom");
+		actions.lastname.sendKeys("cramps");
+		actions.email.sendKeys("tom.cramps@gmail.com");
+		actions.confirm_email.sendKeys("tom.cramps@gmail.com");
 		actions.password.sendKeys("flower45");
 		actions.confirm_password.sendKeys("flower45");
-		actions.selectQuestion(3);
-		actions.answer.sendKeys("glen");
+		actions.selectQuestion("What was the first car you owned?");
+		actions.answer.sendKeys("geo");
 		if (!actions.isTermsOfServiceChecked())
 			actions.terms_checkbox.click();
 		if (!actions.isSignupChecked())
 			actions.signup_checkbox.click();
 		actions.submit_btn.click();
 		Assert.assertTrue(driver.getPageSource().contains("Account Creation Successful!"));
-		*/
 	}
 
 	@Ignore
@@ -125,7 +122,9 @@ public class LibertyTests{
 	@Ignore
 	@Test
 	public void invoke_change_country_dialog() throws Exception {
-		actions.selectCountry(0); //afghanistan
+		Assert.assertFalse(actions.change_country_btn.isDisplayed());
+		Assert.assertFalse(actions.cancel_country_btn.isDisplayed());
+		actions.selectCountry("FRA"); //france
 		Assert.assertTrue(actions.change_country_btn.isDisplayed());
 		Assert.assertTrue(actions.cancel_country_btn.isDisplayed());
 	}

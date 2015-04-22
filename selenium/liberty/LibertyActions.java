@@ -60,29 +60,48 @@ public class LibertyActions
 
 	public void selectCountry(String value){
 		Select s = new Select(this.country);
-		List<WebElement> options = s.getOptions();
-		for (WebElement option: options)
-			if (option.getAttribute("value").equals(value))
-				option.click();
+		selectUsingOptionValue(s, value);
 		//s.selectByValue(value);
 	}
 
 	public void selectDay(int index){
-		Select s = new Select(this.month);
-		s.selectByIndex(index);
-	}
-	public void selectMonth(int index){
 		Select s = new Select(this.day);
 		s.selectByIndex(index);
 	}
+
+	public void selectDay(String value){
+		Select s = new Select(this.day);
+		selectUsingOptionValue(s, value);
+	}
+
+	public void selectMonth(int index){
+		Select s = new Select(this.month);
+		s.selectByIndex(index);
+	}
+
+	public void selectMonth(String value){
+		Select s = new Select(this.month);
+		selectUsingOptionValue(s, value);
+	}
+	
 	public void selectYear(int index){
 		Select s = new Select(this.year);
 		s.selectByIndex(index);
 	}
 
+	public void selectYear(String value){
+		Select s = new Select(this.year);
+		selectUsingOptionValue(s, value);
+	}
+
 	public void selectQuestion(int index){
 		Select s = new Select(this.question);
 		s.selectByIndex(index);
+	}
+
+	public void selectQuestion(String text){
+		Select s = new Select(this.question);
+		selectUsingOptionText(s, text);
 	}
 
 	public boolean isTermsOfServiceChecked(){
@@ -94,4 +113,19 @@ public class LibertyActions
 		String s = this.signup_checkbox.getAttribute("class");
 		return s.contains("input-checkbox-checked");
 	}
+
+	private void selectUsingOptionValue(Select s, String value){
+		List<WebElement> options = s.getOptions();
+		for (WebElement option: options)
+			if (option.getAttribute("value").equals(value))
+				option.click();
+	}
+
+	private void selectUsingOptionText(Select s, String text){
+		List<WebElement> options = s.getOptions();
+		for (WebElement option: options)
+			if (option.getText().equals(text))
+				option.click();
+	}
+
 }
