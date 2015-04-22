@@ -32,3 +32,16 @@ wget -p -H http://www.nytimes.com
 # selenium server needs to be updated to work with latest browsers
 
 # php 5.4.17 works on win xp, nothing above
+
+# commands:
+adb devices
+android avd
+android list avd
+android create avd -n "Nexus_7" -t 3
+emulator -avd "Nexus_7"
+
+npm list -g --depth=0
+du -sh .
+
+# start a postgres server:
+initdb -D /usr/local/pgsql/data
