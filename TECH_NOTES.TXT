@@ -29,7 +29,7 @@ Client side validation is performed by a web browser, before input is sent to a 
 ______________________________________________
 a shell account is a user acct on a remote server.
 ______________________________________________
-selenium server needs to be updated to work with latest browsers
+selenium server needs to be updated to work with latest browsers, often tester needs to downgrade browser for working with latest selenium server
 ______________________________________________
 php 5.4.17 works on win xp, nothing above
 ______________________________________________
@@ -48,3 +48,4 @@ initdb -D /usr/local/pgsql/data
 ______________________________________________
 IBM has decided to do something highly unusual — to capitalize on SoftLayer’s bare-metal strengths, and to strongly downplay virtualization and the role of the cloud management platform (CMP). If you want a CMP — OpenStack, CloudStack, vCloud Director, etc. — on SoftLayer, there’s an easy way to install the software on bare metal. But if you want it updated, maintained, etc., you’ll either have to do it yourself, or you need to contract with IBM for managed services. If you do that, you’re not buying cloud IaaS; you’re renting hardware and CMP software, and building your own private cloud.
 ______________________________________________
+how to run mutiple configs with selenium without excess code??? ex. desiredcapabilites.firefox()., .ie(), .chrome()
