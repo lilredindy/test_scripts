@@ -14,8 +14,8 @@ public class gmailTest {
 	private static WebDriver driver;
 	 
 	// use the Firefox browser and go to the wikipedia site
-	@BeforeClass
-	public static void setUp() {
+	@Before
+	public void setUp() {
 		driver = new FirefoxDriver();
 		driver.get("http://www.gmail.com");
 		//driver.manage().deleteAllCookies(); //delete all cookies
@@ -23,9 +23,9 @@ public class gmailTest {
 	}
 	 
 	// quit from WebDriver
-	@AfterClass
-	public static void tearDown(){
-		//driver.quit();
+	@After
+	public void tearDown(){
+		driver.quit();
 	}
 	 
 

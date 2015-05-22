@@ -3,6 +3,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriver.Window;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 //import org.testng.annotations.*;
 //import org.testng.Assert;
@@ -20,6 +21,10 @@ public class MouseOverTest {
 	// use the Firefox browser and go to the wikipedia site
 	@Before
 	public void setUp(){
+		//String chrome_path = "C:\\Documents and Settings\\chuck\\Desktop\\shri\\Development\\test_tools\\selenium\\chromedriver.exe";
+		//System.setProperty("webdriver.chrome.driver", chrome_path);
+		//driver = new ChromeDriver();
+
 		driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get("http://skreened.com/theredsun/chak-chel");

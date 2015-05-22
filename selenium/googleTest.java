@@ -17,8 +17,8 @@ public class googleTest {
 	private static WebDriver driver;
 	 
 	// use the Firefox browser and go to the wikipedia site
-	@BeforeClass
-	public static void setUp() {
+	@Before
+	public void setUp() {
 		driver = new FirefoxDriver();
 		
 		//String chrome_path = "C:\\Documents and Settings\\chuck\\Desktop\\shri\\Development\\test_tools\\selenium\\chromedriver.exe";
@@ -29,9 +29,9 @@ public class googleTest {
 	}
 	 
 	// quit from WebDriver
-	@AfterClass
-	public static void tearDown(){
-		//driver.quit();
+	@After
+	public void tearDown(){
+		driver.quit();
 	}
 	 
 

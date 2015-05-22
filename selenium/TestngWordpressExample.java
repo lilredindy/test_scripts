@@ -16,21 +16,29 @@ public class TestngWordpressExample {
 // create a WebDriver
 WebDriver driver;
  
-// use the Firefox browser and go to the wikipedia site
+@Parameters("browser")
 @BeforeClass
-public void setUp() throws Exception{
+public void setUp(String browser) throws Exception{
 
-    //String chrome_path = "C:\\Documents and Settings\\chuck\\Desktop\\shri\\Development\\test_tools\\selenium\\chromedriver.exe";
-   // System.setProperty("webdriver.chrome.driver", chrome_path);
-   // WebDriver driver = new ChromeDriver();
+  //Firefox
+  if (browser.equalsIgnoreCase("Firefox"))
     driver = new FirefoxDriver();
-    //driver = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), DesiredCapabilities.firefox());
+  //Chrome
+  else if (browser.equalsIgnoreCase("Chrome")) {
+    String chrome_path = "C:\\Documents and Settings\\chuck\\Desktop\\shri\\Development\\test_tools\\selenium\\chromedriver.exe";
+    System.setProperty("webdriver.chrome.driver", chrome_path);
+    driver = new ChromeDriver();
+  }
+  //Undefined
+  else throw new IllegalArgumentException("The Browser Type is Undefined");
+
+  //driver = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), DesiredCapabilities.firefox());
 }
  
 // quit from WebDriver
 @AfterClass
 public void tearDown(){
-driver.quit();
+  //driver.quit();
 }
 
 
