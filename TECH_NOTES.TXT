@@ -49,3 +49,8 @@ ______________________________________________
 IBM has decided to do something highly unusual — to capitalize on SoftLayer’s bare-metal strengths, and to strongly downplay virtualization and the role of the cloud management platform (CMP). If you want a CMP — OpenStack, CloudStack, vCloud Director, etc. — on SoftLayer, there’s an easy way to install the software on bare metal. But if you want it updated, maintained, etc., you’ll either have to do it yourself, or you need to contract with IBM for managed services. If you do that, you’re not buying cloud IaaS; you’re renting hardware and CMP software, and building your own private cloud.
 ______________________________________________
 how to run mutiple configs with selenium without excess code??? ex. desiredcapabilites.firefox()., .ie(), .chrome()
+______________________________________________
+start the postgres server:
+postgres -D /usr/local/pgsql/data
+start the mysql server:
+mysqld [options]
