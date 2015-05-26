@@ -3,7 +3,7 @@ from selenium import webdriver
 #import time
 
 
-class codeBat(unittest.TestCase):
+class code_bat(unittest.TestCase):
 	driver = webdriver.Firefox()
 
 	def setUp(self):

@@ -11,7 +11,7 @@ import org.junit.Assert;
 import org.junit.*;
 
 
-public class googleTest {
+public class jUnitGoogleTest {
 	 
 	// create a WebDriver
 	private static WebDriver driver;

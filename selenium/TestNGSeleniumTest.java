@@ -5,7 +5,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.*;
 import org.testng.Assert;
  
-public class TestNGSeleniumTest {
+public class testNGSeleniumTest {
  
 // create a WebDriver
 WebDriver driver;

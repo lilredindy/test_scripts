@@ -9,7 +9,7 @@ import org.junit.runners.Suite.SuiteClasses;
     gmailTest.class
 })
 
-public class junitSuiteExample
+public class jUnitSuiteExample
 {
  /* empty class */
 }

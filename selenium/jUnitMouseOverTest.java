@@ -13,7 +13,7 @@ import org.junit.*;
 import java.util.concurrent.TimeUnit;
 
 
-public class MouseOverTest {
+public class jUnitMouseOverTest {
 	 
 	// create a WebDriver
 	private WebDriver driver;
