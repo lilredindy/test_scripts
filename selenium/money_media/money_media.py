@@ -28,12 +28,16 @@ import time, traceback
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
+from selenium.common.exceptions import NoSuchElementException
+
+
 
 class moneyMedia(unittest.TestCase):
 
 	def setUp(self): 
 		
 		'''
+		#non-cloud code
 		chrome_path = "C:\\Documents and Settings\\chuck\Desktop\\shri\\Development\\test_tools\\selenium\\chromedriver.exe"
 		self.driver = webdriver.Chrome(chrome_path) 
 		#self.driver = webdriver.Firefox()
@@ -41,7 +45,9 @@ class moneyMedia(unittest.TestCase):
 		self.driver.implicitly_wait(10) #waits for element to appear in DOM
 		self.driver.get("http://www.financialadvisoriq.com/")
 		'''
-		#code for browser stack is below
+
+		
+		#browser stack code
 		desired_cap = {'os': 'Windows', 'os_version': 'xp', 'browser': 'Firefox', 'browser_version': '35' }
 		self.driver = webdriver.Remote(
     		command_executor='http://shriamin1:LsuuTUS1h1RQ3aNGtZus@hub.browserstack.com:80/wd/hub',
@@ -49,10 +55,26 @@ class moneyMedia(unittest.TestCase):
 		self.lib = moneyMediaLib(self.driver)
 		self.driver.implicitly_wait(10) #waits for element to appear in DOM
 		self.driver.get("http://www.financialadvisoriq.com/")
+		
+
+		'''
+		#sauce labs code
+		sauce_url = "http://shriamin:abf4b3e5-cfab-4a79-824c-08a4d4d843f9@ondemand.saucelabs.com:80/wd/hub"
+		desired_capabilities = {
+    		'platform': "Mac OS X 10.9",
+    		'browserName': "chrome",
+    		'version': "31",
+		}
+		self.driver = webdriver.Remote(desired_capabilities=desired_capabilities,
+                          command_executor=sauce_url)
+		self.lib = moneyMediaLib(self.driver)
+		self.driver.implicitly_wait(10)
+		self.driver.get("http://www.financialadvisoriq.com/")
+		'''
 
 	def tearDown(self): 
-		#pass
-		self.driver.quit() 
+		pass
+		#self.driver.quit() 
 		#self.driver.close() #only works with remote webdriver
 
 	@classmethod
@@ -89,9 +111,14 @@ class moneyMedia(unittest.TestCase):
 		self.lib.login("qa-test@money-media.com", "money")
 		self.assertTrue(self.driver.find_element_by_css_selector("a[href='/logout']"))
 		self.lib.search("capitalism\n")
+		#x,y coordinates are not 0,0 on sauce
 		url_str = "http://www.financialadvisoriq.com/search/advanced?q=capitalism&x=0&y=0"
 		self.assertTrue(self.driver.current_url == url_str)
-		self.assertTrue(self.driver.find_element_by_class_name("results"))
+		try:
+			self.assertTrue(self.driver.find_element_by_class_name("reults"))
+		except NoSuchElementException:
+			self.driver.find_element_by_class_name("results")
+
 
 	@unittest.skip("")
 	def test_scenario3(self):

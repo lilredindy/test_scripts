@@ -48,7 +48,9 @@ start the postgres server: postgres -D /usr/local/pgsql/data
 connect to server: psql -d db_name
 change password for current user: alter user user_name with password 'new_password';
 
-need to find out why postgres client does not need to supply password
+need to find out why postgres client does not need to supply password on my mac
 __________________________________________________________________________________
 
+a libary of functions is like api, internet api is same thing just over a network
+is selenium a restful service?
 

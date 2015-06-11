@@ -98,8 +98,8 @@ cats_dict()
 dog()
 bird()
 falcon()
-reed('C:\\Documents and Settings\\chuck\Desktop\\shri\\Development\\python_scripts\\test.txt')
-wright('C:\\Documents and Settings\\chuck\Desktop\\shri\\Development\\python_scripts\\test.txt')
+reed('test.txt')
+wright('test.txt')
 c =  Calc()
 c.add(4,5) #should be 9
 c.subtract(9,5) #should be 4
