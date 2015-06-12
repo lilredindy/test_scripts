@@ -14,13 +14,18 @@ from sauceclient import SauceClient
 USERNAME = os.environ.get('SAUCE_USERNAME', "shriamin")
 ACCESS_KEY = os.environ.get('SAUCE_ACCESS_KEY', "abf4b3e5-cfab-4a79-824c-08a4d4d843f9")
 sauce = SauceClient(USERNAME, ACCESS_KEY)
+DEBUG  = 0
 
-browsers = [{"platform": "Mac OS X 10.9",
-             "browserName": "chrome",
-             "version": "31"},
-            {"platform": "Windows 8.1",
-             "browserName": "internet explorer",
-             "version": "11"}]
+if DEBUG:
+    browsers = [{"platform": "Mac OS X 10.9",
+                 "browserName": "chrome",
+                 "version": "31"},
+                {"platform": "Windows 8.1",
+                 "browserName": "internet explorer",
+                 "version": "11"}]
+else:
+    browsers = [{'os': 'Windows', 'os_version': 'xp', 'browser': 'Firefox', 'browser_version': '35' },
+                {'os': 'Windows', 'os_version': 'xp', 'browser': 'Firefox', 'browser_version': '35' }]
 
 
 def on_platforms(platforms):
@@ -42,12 +47,23 @@ class SauceSampleTest(unittest.TestCase):
         print self.desired_capabilities['name']
         print self.id()
 
-        sauce_url = "http://%s:%s@ondemand.saucelabs.com:80/wd/hub"
-        self.driver = webdriver.Remote(
-            desired_capabilities=self.desired_capabilities,
-            command_executor=sauce_url % (USERNAME, ACCESS_KEY)
-        )
-        self.driver.implicitly_wait(30)
+        if DEBUG:
+            sauce_url = "http://%s:%s@ondemand.saucelabs.com:80/wd/hub"
+            self.driver = webdriver.Remote(
+                desired_capabilities=self.desired_capabilities,
+                command_executor=sauce_url % (USERNAME, ACCESS_KEY)
+                )
+            self.driver.implicitly_wait(30)
+
+        else:
+            bs_url = "http://shriamin1:LsuuTUS1h1RQ3aNGtZus@hub.browserstack.com:80/wd/hub"
+            self.driver = webdriver.Remote(
+                desired_capabilities=self.desired_capabilities,
+                command_executor=bs_url
+                )
+            self.driver.implicitly_wait(30)
+
+
 
     def test_sauce(self):
         self.driver.get('http://saucelabs.com/test/guinea-pig')
@@ -64,19 +80,36 @@ class SauceSampleTest(unittest.TestCase):
         body = self.driver.find_element_by_xpath('//body')
         assert 'I am some other page content' not in body.text
         self.driver.find_elements_by_link_text('i am a link')[0].click()
-        body = self.driver.find_element_by_xpath('//bod')
+        body = self.driver.find_element_by_xpath('//body')
         assert 'I am some other page content' in body.text
 
     def tearDown(self):
-        print("Link to your job: https://saucelabs.com/jobs/%s" % self.driver.session_id)
-        try:
-            if sys.exc_info() == (None, None, None):
-                sauce.jobs.update_job(self.driver.session_id, passed=True)
-            else:
-                sauce.jobs.update_job(self.driver.session_id, passed=False)
-        finally:
-            self.driver.quit()
 
+        if DEBUG:
+            print("Link to your job: https://saucelabs.com/jobs/%s" % self.driver.session_id)
+            try:
+                if sys.exc_info() == (None, None, None):
+                    sauce.jobs.update_job(self.driver.session_id, passed=True)
+                else:
+                    sauce.jobs.update_job(self.driver.session_id, passed=False)
+            finally:
+                self.driver.quit()
+        else:
+            try:
+                cmd = ""
+                if sys.exc_info() == (None, None, None):
+                    #cmd = curl -u "shriamin1:LsuuTUS1h1RQ3aNGtZus" -X PUT -H "Content-Type: application/json" -d "{\"status\":\"<new-status>\", \"reason\":\"<reason text>\"}" https://www.browserstack.com/automate/sessions/<session-id>.json
+                    os.system(cmd)
+                else:
+                    #cmd = curl -u "shriamin1:LsuuTUS1h1RQ3aNGtZus" -X PUT -H "Content-Type: application/json" -d "{\"status\":\"<new-status>\", \"reason\":\"<reason text>\"}" https://www.browserstack.com/automate/sessions/<session-id>.json
+                    os.system(cmd)
+
+                    #curl -u "shriamin1:LsuuTUS1h1RQ3aNGtZus" -X PUT -H "Content-Type: application/json" -d "{\"status\":\"<new-status>\", \"reason\":\"<reason text>\"}" https://www.browserstack.com/automate/sessions/<session-id>.json
+            finally:
+                self.driver.quit()
+            
+       
+        
 
 if __name__ == '__main__':
     unittest.main()

@@ -1,38 +1,38 @@
 XML is used to tag the data, SOAP is used to transfer the data, WSDL is used for describing the services available and UDDI is used for listing what services are available. 
-__________________________________________________________
+________________________________________________
 The access logs of most web servers keep detailed information about where visitors came from and how they browsed the hosted site. 
-__________________________________________________________
+________________________________________________
 You don't actually write instance methods in Python; what you write is class methods which (must) take an instance as a first parameter. And therefore, you’ll have to place the instance parameter somewhere explicitly.
-__________________________________________________________
+________________________________________________
 In order to bootstrap the database system, a freshly initialized system always contains one predefined role. This role is always a "superuser", and by default (unless altered when running initdb) it will have the same name as the operating system user that initialized the database cluster. Customarily, this role will be named postgres. In order to create more roles you first have to connect as this initial role.
-__________________________________________________________
+________________________________________________
 installing appium with node.js was a bitch:
 sudo chown -R <yourUsername>:staff /usr/local/lib
-__________________________________________________________
+________________________________________________
 Relational databases cannot be load balanced like webservers
-__________________________________________________________
+________________________________________________
 extract jar:  jar xf foo.jar
 view jar content: jar tvf foo.jar
 create jar: jar cvf foo.jar
-__________________________________________________________
+________________________________________________
 no javascript events are triggered before the document is ready (DOM is fully loaded). 
-__________________________________________________________
+________________________________________________
 curl is pipe, wget is cp
 all pre-requisite files & goes to foreign host:
 wget -p -H http://www.nytimes.com 
-__________________________________________________________
+________________________________________________
 java org.testng.TestNG testng.xml
 java org.junit.runner.JUnitCore <classname>
-__________________________________________________________
+________________________________________________
 Server side validation is performed by a web server, after input has been sent to the server.
 Client side validation is performed by a web browser, before input is sent to a web server
-_________________________________________________
+________________________________________________
 a shell account is a user acct on a remote server.
 ________________________________________________
 selenium server needs to be updated to work with latest browsers, often tester needs to downgrade browser for working with latest selenium server
-_________________________________________________
+________________________________________________
 php 5.4.17 works on win xp, nothing above
-_________________________________________________
+________________________________________________
 commands:
 adb devices
 android avd
@@ -42,13 +42,15 @@ emulator -avd "Nexus_7"
 
 npm list -g --depth=0
 du -sh .
-_________________________________________________
+________________________________________________
 initilize a postgres server: initdb -D /usr/local/pgsql/data
 start the postgres server: postgres -D /usr/local/pgsql/data
 connect to server: psql -d db_name
 change password for current user: alter user user_name with password 'new_password';
-_________________________________________________
+________________________________________________
 an API is a libary of functions often exposed thru it's interface.  internet api is same thing just over a network. 
-_________________________________________________
+________________________________________________
+is notes app just an IMAP client (retrieves)?
+
 
 
