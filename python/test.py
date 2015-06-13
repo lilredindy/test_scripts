@@ -81,8 +81,10 @@ def wright(path):
 	f.close()
 
 class Calc():
-	def __init__(self):
+	def __init__(self, a,b):
 		print("in the Calc class")
+		self.a = a
+		self.b = b
 	def add(self,x,y):
 		print(x + y)
 	def subtract(self,x,y):
@@ -100,6 +102,6 @@ bird()
 falcon()
 reed('test.txt')
 wright('test.txt')
-c =  Calc()
+c =  Calc(2,2)
 c.add(4,5) #should be 9
 c.subtract(9,5) #should be 4
