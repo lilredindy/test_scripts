@@ -30,6 +30,7 @@ else:
 
 def on_platforms(platforms):
     def decorator(base_class):
+        #print base_class
         module = sys.modules[base_class.__module__].__dict__
         for i, platform in enumerate(platforms):
             d = dict(base_class.__dict__)
@@ -44,8 +45,8 @@ class SauceSampleTest(unittest.TestCase):
     def setUp(self):
 
         self.desired_capabilities['name'] = self.id()
-        print self.desired_capabilities['name']
-        print self.id()
+        #print self.desired_capabilities['name']
+        #print self.id()
 
         if DEBUG:
             sauce_url = "http://%s:%s@ondemand.saucelabs.com:80/wd/hub"
