@@ -99,11 +99,11 @@ class SauceSampleTest(unittest.TestCase):
             try:
                 cmd = None
                 if sys.exc_info() == (None, None, None):
-                    cmd = "curl -ku \"shriamin1:LsuuTUS1h1RQ3aNGtZus\" -X PUT -H \"Content-Type: application/json\" -d \"{\"status\":\"PASS\", \"reason\":\"cuz\"}\" https://www.browserstack.com/automate/sessions/%s.json"
-                    print cmd % self.driver.session_id
+                    cmd = "curl -ku \"shriamin1:LsuuTUS1h1RQ3aNGtZus\" -X PUT -H \"Content-Type: application/json\" -d \"{\\\"status\\\":\\\"completed\\\", \\\"reason\\\":\\\"cuz\\\"}\" https://www.browserstack.com/automate/sessions/%s.json"
+                    print "\n" + cmd % self.driver.session_id
                     os.system(cmd % self.driver.session_id)
                 else:
-                    cmd = "curl -ku \"shriamin1:LsuuTUS1h1RQ3aNGtZus\" -X PUT -H \"Content-Type: application/json\" -d \"{\"status\":\"FAIL\", \"reason\":\"cuz\"}\" https://www.browserstack.com/automate/sessions/%s.json"
+                    cmd = "curl -ku \"shriamin1:LsuuTUS1h1RQ3aNGtZus\" -X PUT -H \"Content-Type: application/json\" -d \"{\\\"status\\\":\\\"error\\\", \\\"reason\\\":\\\"cuz\\\"}\" https://www.browserstack.com/automate/sessions/%s.json"
                     os.system(cmd % self.driver.session_id)
             finally:
                 self.driver.quit()
