@@ -8,6 +8,7 @@ import unittest
 import sauceclient
 from selenium import webdriver
 from sauceclient import SauceClient
+import time
 
 # it's best to remove the hardcoded defaults and always get these values
 # from environment variables
@@ -25,7 +26,8 @@ if DEBUG:
                  "version": "11"}]
 else:
     browsers = [{'os': 'Windows', 'os_version': 'xp', 'browser': 'Firefox', 'browser_version': '35' },
-                {'os': 'Windows', 'os_version': 'xp', 'browser': 'Firefox', 'browser_version': '35' }]
+                {'os': 'Windows', 'os_version': 'xp', 'browser': 'Firefox', 'browser_version': '35' },
+                {"os":"ios","os_version":"7.0","browser":"iphone","device":"iPhone 5C"}]
 
 
 def on_platforms(platforms):
@@ -46,7 +48,6 @@ class SauceSampleTest(unittest.TestCase):
 
         self.desired_capabilities['name'] = self.id()
         #print self.desired_capabilities['name']
-        #print self.id()
 
         if DEBUG:
             sauce_url = "http://%s:%s@ondemand.saucelabs.com:80/wd/hub"
@@ -64,6 +65,7 @@ class SauceSampleTest(unittest.TestCase):
                 )
             self.driver.implicitly_wait(30)
 
+        print '\n' + self.driver.session_id
 
 
     def test_sauce(self):
@@ -100,7 +102,7 @@ class SauceSampleTest(unittest.TestCase):
                 cmd = None
                 if sys.exc_info() == (None, None, None):
                     cmd = "curl -ku \"shriamin1:LsuuTUS1h1RQ3aNGtZus\" -X PUT -H \"Content-Type: application/json\" -d \"{\\\"status\\\":\\\"completed\\\", \\\"reason\\\":\\\"cuz\\\"}\" https://www.browserstack.com/automate/sessions/%s.json"
-                    print "\n" + cmd % self.driver.session_id
+                    print '\n' + cmd % self.driver.session_id
                     os.system(cmd % self.driver.session_id)
                 else:
                     cmd = "curl -ku \"shriamin1:LsuuTUS1h1RQ3aNGtZus\" -X PUT -H \"Content-Type: application/json\" -d \"{\\\"status\\\":\\\"error\\\", \\\"reason\\\":\\\"cuz\\\"}\" https://www.browserstack.com/automate/sessions/%s.json"

@@ -1,6 +1,7 @@
 import unittest
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+import time
 
 print('hello')
 
@@ -8,11 +9,19 @@ class HugsTestCase(unittest.TestCase):
 
 	def setUp(self):
 		print("hello world")
+		capabilities = {"platform": "WINDOWS",
+                 "browserName": "firefox",
+                 "version": ""}
 		self.driver = webdriver.Remote( 
    				command_executor='http://127.0.0.1:4444/wd/hub', 
-   				desired_capabilities=DesiredCapabilities.FIREFOX) 
+   				desired_capabilities= capabilities )
+		#NOTE: THE desired capabilities was set to WINDOWS but is now MAC
+   		print self.driver.desired_capabilities
 
 	def test_hello_world(self):
+		print self.driver.session_id
+		time.sleep(60)
+
 		# Go to codepad.org
 		self.driver.get('http://codepad.org')
 		 
@@ -30,6 +39,9 @@ class HugsTestCase(unittest.TestCase):
 		 
 		# Make this an actual test. 
 		self.assertTrue("Hello, WorldS!" in self.driver.page_source)
+
+
+
 
 	def tearDown(self):
 		print("bye bye")
