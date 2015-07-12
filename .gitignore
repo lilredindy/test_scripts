@@ -1,5 +1,8 @@
 *.class
 python/*.pyc
+python/behave/*.pyc
+python/locust/*.pyc
+selenium/*.pyc
 selenium/test-output/
 selenium/grubhub/test-output/
 selenium/*.class
