@@ -21,7 +21,7 @@ def repeat2(times=1):
         return new_f
     return decorator
 
-
+@repeat(50)
 class ElephantTestCase(unittest.TestCase):
 
 	def setUp(self):
@@ -32,7 +32,6 @@ class ElephantTestCase(unittest.TestCase):
 		#System.setProperty("webdriver.chrome.driver", chrome_path);
 		self.driver = webdriver.Chrome(executable_path=chrome_path)
 
-	@repeat2(2)
 	def test_get_page(self):
 		print("sad times")
 		self.driver.get('http://www.theguardian.com/environment/2015/jul/07/zimbabwe-activists-deplore-sale-of-24-elephant-calves-to-china#comment-55235133')

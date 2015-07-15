@@ -23,6 +23,8 @@ wget -p -H http://www.nytimes.com
 ________________________________________________
 java org.testng.TestNG testng.xml
 java org.junit.runner.JUnitCore <classname>
+python test.py #run pyunit test
+nosetests -v nosetest.py #run parameterized nose
 ________________________________________________
 Server side validation is performed by a web server, after input has been sent to the server.
 Client side validation is performed by a web browser, before input is sent to a web server
@@ -49,8 +51,11 @@ connect to server: psql -d db_name
 change password for current user: alter user user_name with password 'new_password';
 ________________________________________________
 an API is a libary of functions often exposed thru it's interface.  internet api is same thing just over a network. 
-________________________________________________
-is notes app just an IMAP client (retrieves)?
-
-________________________________________________Most HTTP conversation does not drop the connection on every request, but rather multiple HTTP requests are pipelined in the same connection. In HTTP 1.0, client can indicate that it wants to send multiple requests in the same connection by using Connection: Keep-Alive header, in HTTP 1.1, keep alive is the default, and client and server only drops connection when explicitly requested and on timeout.
+_____________________________________________Most HTTP conversation does not drop the connection on every request, but rather multiple HTTP requests are pipelined in the same connection. In HTTP 1.0, client can indicate that it wants to send multiple requests in the same connection by using Connection: Keep-Alive header, in HTTP 1.1, keep alive is the default, and client and server only drops connection when explicitly requested and on timeout.
 The reason HTTP is stateless is not because it uses a new connection for each request, but because every request is independent of any other requests whether they are transported through the same connection or a different connection. In other words every request contains every information that is needed to process that request. 
+________________________________________________
+Continuous Delivery doesn't mean every change is deployed to production ASAP. It means every change is proven to be deployable at any time
+
+-Continuous integration: your application always builds and passes its tests, including all the pieces from different sub-teams.
+-Continuous delivery: your application always builds and deploys to a test environment and passes its tests.
+-Continuous deployment: your application is always ready to deploy to production through a largely automated process.
