@@ -6,14 +6,14 @@ class UserBehavior(TaskSet):
         #self.login()
         pass
             
-
+    @task(2)
     def login(self):
-        #self.client.post("/login", {"username":"ellen_key", "password":"education"})
-        pass
+        print "login"
+        self.client.post("/login", {"username":"ellen_key", "password":"education"})
 
     @task(2)
     def index(self):
-        print "get me outta here!"
+        print "index"
         self.client.get("/")
 
     #@task(1)

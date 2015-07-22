@@ -2,6 +2,7 @@
 python/*.pyc
 python/behave/*.pyc
 python/locust/*.pyc
+python/.hypothesis/
 selenium/*.pyc
 selenium/test-output/
 selenium/grubhub/test-output/
