@@ -12,3 +12,7 @@ inner join
 full outer join
 left outer join
 right outer join
+
+
+select * from pg_stat_activity;
+

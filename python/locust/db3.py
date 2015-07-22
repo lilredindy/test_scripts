@@ -9,7 +9,7 @@ class DBClient(xmlrpclib.ServerProxy):
 			start_time = time.time()
 			try:	
 				result = func(*args, **kwargs)
-				#print name, result
+				print name, result
 			except xmlrpclib.Fault as e:
 				total_time = int((time.time() - start_time) * 1000)
 				events.request_failure.fire(request_type="xmlrpc", name=name, response_time=total_time, exception=e)
@@ -33,8 +33,10 @@ class UserBehavior(TaskSet):
 
 	@task(2)
 	def select_customers(self):
-		self.client.db_test()
-
+		#foo = self.client.db_test()
+		foo = self.client.__getattr__('db_test')
+		print foo
+		foo()
 
 
 class DBLocust(Locust):
