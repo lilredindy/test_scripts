@@ -1,0 +1,14 @@
+insert into shipments(customer_id, isbn, ship_date) values(860, '0929605942', now());
+select title, sum(num_shipped) from recent_shipments group by(title);
+select sum(num_shipped) from recent_shipments group by(title);
+SELECT * FROM public.books FULL OUTER JOIN public.authors ON books.author_id = authors.id;
+select * from ship_item('Black', 'Wendy', '0394900014');
+select * from add_shipment(107,'0394900014');
+select count(*) from books, editions, stock;
+
+
+what is a natural join?
+inner join
+full outer join
+left outer join
+right outer join
