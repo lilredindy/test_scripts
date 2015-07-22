@@ -1,36 +1,27 @@
-
-
-import psycopg2
 import time
 
-def foo2():
-	print "foo2"
+def hand():
+	print "hand"
+	def foot():
+		print "foot"
+	return foot
 
-class Foo():
-
-	def foo1(self):
-		print "foo1"
-		x = foo2()
-		def foo3():
-			x()
-			print "hello"
-
-		return foo3()
+hand()
+print "bar"
 
 
 
-#Define our connection string
-conn_string = "host='localhost' dbname='booktown' user='postgres' password='maverick'"
+import os
 
-# print the connection string we will use to connect
-print "Connecting to database\n ->%s" % (conn_string)
+def here(basepath):
+	print basepath
+	def f(*path):
+		print basepath
+		return os.path.join(basepath, *path)
+	return f
 
-# get a connection, if a connect cannot be made an exception will be raised here
-conn = psycopg2.connect(conn_string)
-
-# conn.cursor will return a cursor object, you can use this cursor to perform queries
-cursor = conn.cursor()
-print "Connected!\n"
-
-while (True):
-	time.sleep(1)
+#here("/boo")
+usr = here('foo/')
+print dir(usr)
+print usr.func_code
+print usr('bin')
