@@ -66,6 +66,5 @@ Continuous Delivery doesn't mean every change is deployed to production ASAP. It
 -Continuous deployment: your application is always ready to deploy to production through a largely automated process.
 ________________________________________________
 Libraries that bridge the gap between procedural code and SQL are known as object-relational mappers, or ORMs. ORMs typically represent database records as instances of a particular class. In order to represent 50 records, you would need 50 instances of a class, with the state of each instance reflecting the names, types and values of the columns in that record. 
-
-________________________________________________
-
+_______________________________________________
+So "origin" is a clone of your fork repo, from which you push and pull. "Upstream" is a name for the main repo, from where you pull and keep a clone of your fork updated, but you don't have push access to it.
