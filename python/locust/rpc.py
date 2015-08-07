@@ -46,7 +46,7 @@ class ApiUser(XmlRpcLocust):
     
 
     host = "http://127.0.0.1:8877/"
-    min_wait = 100
+    min_wait = 1000
     max_wait = 1000
     
     class task_set(TaskSet):

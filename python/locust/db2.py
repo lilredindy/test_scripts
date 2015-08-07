@@ -1,28 +1,24 @@
 
 from locust import Locust, TaskSet, task, events
-import time
 import psycopg2
-
+import time
 
 class DBClient():
 
 	def execute_query(self):
- 
- 		start_time = time.time()
- 		try:
- 			# execute our Query
- 			self.cursor.execute("SELECT * FROM customers")
-	 	except:
-	 		print "Some kind of error"
-	 		raise
-	 	else:
-	 		total_time = int((time.time() - start_time) * 1000)
-	 		events.request_success.fire(request_type="db_access", name="execute_query", response_time=total_time, response_length=0)
-
-
+		#time.sleep(10)
+		try:
+			# execute our Query
+			self.cursor.execute("SELECT * FROM customers")
+		except:
+			print "Some kind of error"
+			raise
+		else:
+			events.request_success.fire(request_type="db_access", name="execute_query", response_time=0, response_length=0)
+		
 		# retrieve the records from the database
-		records = self.cursor.fetchall()
-		print(records)
+		#records = self.cursor.fetchall()
+		#print(records)
 
 	def connection(self):
 		#Define our connection string
@@ -40,24 +36,21 @@ class DBClient():
 
 
 class UserBehavior(TaskSet):
-    def on_start(self):
-    	print "start"
-        self.client.connection()
-        
-    @task(2)
-    def task1(self):
-        print "task1"
+	def on_start(self):
+		print "start"
+		self.client.connection()
 
-    @task(2)
-    def select_customers(self):
-    	print "task2"
-    	self.client.execute_query()
-
+	@task(2)
+	def select_customers(self):
+		print "select_customers"
+		self.client.execute_query()
 
 
 class DBLocust(Locust):
 	def __init__(self):
+		print "locust init"
 		self.client = DBClient()
-
+	min_wait = 1000
+	max_wait = 1000
 	task_set = UserBehavior
 

@@ -1,7 +1,6 @@
 import time
 import random
 from SimpleXMLRPCServer import SimpleXMLRPCServer
-
 import psycopg2
 
 
@@ -14,23 +13,24 @@ def get_random_number(low, high):
 	time.sleep(random.random())
 	return random.randint(low, high)
 
-def db_test():
+def db_testx():
+	print "db_test"
+	return 1
 
+def db_test():
+	time.sleep(10)
 	#Define our connection string
 	conn_string = "host='localhost' dbname='booktown' user='postgres' password='maverick'"
-
 	# print the connection string we will use to connect
 	print "Connecting to database\n ->%s" % (conn_string)
-
 	# get a connection, if a connect cannot be made an exception will be raised here
 	conn = psycopg2.connect(conn_string)
-
 	# conn.cursor will return a cursor object, you can use this cursor to perform queries
 	cursor = conn.cursor()
 	print "Connected!\n"
 	cursor.execute("SELECT * FROM customers")
-	records = cursor.fetchall()
-	print(records)
+	#records = cursor.fetchall()
+	#print(records)
 	return 1
 
 
