@@ -2,8 +2,10 @@ import requests
 
 
 
-for i in range(0, 0):
-	r = requests.get("http://www.theguardian.com/environment/2015/jul/07/zimbabwe-activists-deplore-sale-of-24-elephant-calves-to-china#comment-55235133")
+for i in range(0, 100):
+	#r = requests.get("http://www.theguardian.com/environment/2015/jul/07/zimbabwe-activists-deplore-sale-of-24-elephant-calves-to-china#comment-55235133")
+	#r = requests.get("https://www.washingtonpost.com/news/worldviews/wp/2015/08/25/after-cecil-the-lion-zimbabweans-worry-about-losing-elephants-to-china/")
+	r = requests.get("http://www.nytimes.com/2015/08/30/arts/television/national-geographics-tv-outlets-examine-elephants-plight.html?_r=0")
 	print r.status_code
 
 
