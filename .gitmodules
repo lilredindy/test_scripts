@@ -1,0 +1,3 @@
+[submodule "mobile/ios/jenkins-ios-example"]
+	path = mobile/ios/jenkins-ios-example
+	url = https://github.com/shinetech/jenkins-ios-example.git
