@@ -1,0 +1,21 @@
+curl -X POST https://api.locu.com/v2/venue/search/ -d '{
+"api_key":"fcb35836fa320e8c7f7382a4a02a29146a100094",
+"fields":["name"],
+"venue_queries":[{"location":{"locality":"San Francisco"}}]
+}'
+
+
+curl -X POST https://api.locu.com/v2/venue/search -d '{
+"api_key" : "fcb35836fa320e8c7f7382a4a02a29146a100094",
+"fields" : ["menus"],
+"venue_queries" : [{ "locu_id":"c6e8d9bbe973b2ee225c" }]
+}'
+
+
+
+
+
+
+
+
+
