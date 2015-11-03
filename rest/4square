@@ -1,0 +1,38 @@
+curl -X GET "https://api.foursquare.com/v2/venues/search?client_id=PD4AB3BMDYNZPOU3OZV0JI0TXEI0R2T5NSVVH0KO0JJIVK5S&client_secret=05JCWNZANK0B5GD1MQXESV5LP4SPV3SBKSOPUDSIAADN4ZZG&v=20130815&ll=40.7,-74&query=sushi"
+
+
+curl -X GET "https://api.foursquare.com/v2/venues/search?client_id=PD4AB3BMDYNZPOU3OZV0JI0TXEI0R2T5NSVVH0KO0JJIVK5S&client_secret=05JCWNZANK0B5GD1MQXESV5LP4SPV3SBKSOPUDSIAADN4ZZG&v=20130815&ll=40.7,-74&query=sushi&radius=500"
+
+
+curl -X GET "https://api.foursquare.com/v2/venues/search?client_id=PD4AB3BMDYNZPOU3OZV0JI0TXEI0R2T5NSVVH0KO0JJIVK5S&client_secret=05JCWNZANK0B5GD1MQXESV5LP4SPV3SBKSOPUDSIAADN4ZZG&v=20130815&ll=40.7,-74&radius=500&categoryId=4bf58dd8d48988d1e2931735"
+ 
+
+curl -X GET "https://api.foursquare.com/v2/venues/search?client_id=PD4AB3BMDYNZPOU3OZV0JI0TXEI0R2T5NSVVH0KO0JJIVK5S&client_secret=05JCWNZANK0B5GD1MQXESV5LP4SPV3SBKSOPUDSIAADN4ZZG&v=20130815&ll=40.7458,-74.001443&radius=500&categoryId=4bf58dd8d48988d1e2931735"
+
+
+curl -X GET "https://api.foursquare.com/v2/venues/search?client_id=PD4AB3BMDYNZPOU3OZV0JI0TXEI0R2T5NSVVH0KO0JJIVK5S&client_secret=05JCWNZANK0B5GD1MQXESV5LP4SPV3SBKSOPUDSIAADN4ZZG&v=20130815&near=New%20York&radius=500&categoryId=4bf58dd8d48988d1e2931735"
+
+
+//specific to venue id
+curl -X GET "https://api.foursquare.com/v2/venues/51008858e4b0af418cc6fbeb?client_id=PD4AB3BMDYNZPOU3OZV0JI0TXEI0R2T5NSVVH0KO0JJIVK5S&client_secret=05JCWNZANK0B5GD1MQXESV5LP4SPV3SBKSOPUDSIAADN4ZZG&v=20130815"
+
+
+//venue events
+curl -X GET "https://api.foursquare.com/v2/venues/4d38dbe6c5285481b84cddb9/events?client_id=PD4AB3BMDYNZPOU3OZV0JI0TXEI0R2T5NSVVH0KO0JJIVK5S&client_secret=05JCWNZANK0B5GD1MQXESV5LP4SPV3SBKSOPUDSIAADN4ZZG&v=20130815"
+
+//venue links
+curl -X GET "https://api.foursquare.com/v2/venues/4d38dbe6c5285481b84cddb9/links?client_id=PD4AB3BMDYNZPOU3OZV0JI0TXEI0R2T5NSVVH0KO0JJIVK5S&client_secret=05JCWNZANK0B5GD1MQXESV5LP4SPV3SBKSOPUDSIAADN4ZZG&v=20130815"
+
+//venue photos
+curl -X GET "https://api.foursquare.com/v2/venues/4d38dbe6c5285481b84cddb9/photos?client_id=PD4AB3BMDYNZPOU3OZV0JI0TXEI0R2T5NSVVH0KO0JJIVK5S&client_secret=05JCWNZANK0B5GD1MQXESV5LP4SPV3SBKSOPUDSIAADN4ZZG&v=20130815"
+
+//photo format
+https://irs0.4sqi.net/img/user/300x500/90140-CQQE4GJNUMQ4BG5R.jpg
+https://irs0.4sqi.net/img/user/300x500/0EFPRIGHQXHM1SNQ.jpg
+https://irs2.4sqi.net/img/general/300x500/uO8f8cIebKYC8oOt1WmIT5AlyB2Wz6hBbVRAUiYM8qg.jpg
+
+---------------------------------------------------------
+
+
+
+{"meta":{"code":200,"requestId":"5621552a498edf6cd26891fe"},"response":{"venues":[{"id":"55cf901f498e52a1e4fde3cb","name":"Please Touch The Art","contact":{},"location":{"address":"Brooklyn Bridge Park","lat":40.70313886114747,"lng":-73.9981049029518,"distance":384,"cc":"US","city":"Brooklyn","state":"NY","country":"United States","formattedAddress":["Brooklyn Bridge Park","Brooklyn, NY","United States"]},"categories":[{"id":"4bf58dd8d48988d1e2931735","name":"Art Gallery","pluralName":"Art Galleries","shortName":"Art Gallery","icon":{"prefix":"https:\/\/ss3.4sqi.net\/img\/categories_v2\/arts_entertainment\/artgallery_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":8,"usersCount":8,"tipCount":0},"specials":{"count":0,"items":[]},"hereNow":{"count":0,"summary":"Nobody here","groups":[]},"referralId":"v-1445025066"},{"id":"4f9b61cbe4b02343c7b7619e","name":"Obriens Car","contact":{},"location":{"lat":40.701926,"lng":-73.994934,"distance":478,"postalCode":"11201","cc":"US","city":"Brooklyn","state":"NY","country":"United States","formattedAddress":["Brooklyn, NY 11201","United States"]},"categories":[{"id":"4bf58dd8d48988d1e2931735","name":"Art Gallery","pluralName":"Art Galleries","shortName":"Art Gallery","icon":{"prefix":"https:\/\/ss3.4sqi.net\/img\/categories_v2\/arts_entertainment\/artgallery_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":1,"usersCount":1,"tipCount":0},"specials":{"count":0,"items":[]},"hereNow":{"count":0,"summary":"Nobody here","groups":[]},"referralId":"v-1445025066"},{"id":"4f32be7119836c91c7f5ba71","name":"Charles Saaf Photography","contact":{"phone":"7185961083","formattedPhone":"(718) 596-1083"},"location":{"address":"12 Clark St","lat":40.69822,"lng":-73.995941,"distance":395,"postalCode":"11201","cc":"US","city":"Brooklyn","state":"NY","country":"United States","formattedAddress":["12 Clark St","Brooklyn, NY 11201","United States"]},"categories":[{"id":"4bf58dd8d48988d1e2931735","name":"Art Gallery","pluralName":"Art Galleries","shortName":"Art Gallery","icon":{"prefix":"https:\/\/ss3.4sqi.net\/img\/categories_v2\/arts_entertainment\/artgallery_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":0,"usersCount":0,"tipCount":0},"specials":{"count":0,"items":[]},"hereNow":{"count":0,"summary":"Nobody here","groups":[]},"referralId":"v-1445025066"},{"id":"51a93c8d498e00f38610b3be","name":"B & M Fine Art Studios","contact":{},"location":{"lat":40.70356001929133,"lng":-74.00585198344135,"distance":633,"cc":"US","city":"New York","state":"NY","country":"United States","formattedAddress":["New York, NY","United States"]},"categories":[{"id":"4bf58dd8d48988d1e2931735","name":"Art Gallery","pluralName":"Art Galleries","shortName":"Art Gallery","icon":{"prefix":"https:\/\/ss3.4sqi.net\/img\/categories_v2\/arts_entertainment\/artgallery_","suffix":".png"},"primary":true}],"verified":false,"stats":{"checkinsCount":3,"usersCount":3,"tipCount":0},"specials":{"count":0,"items":[]},"hereNow":{"count":0,"summary":"Nobody here","groups":[]},"referralId":"v-1445025066"}],"confident":true}}
