@@ -11,7 +11,7 @@ import org.testng.annotations.*;
 //import org.openqa.selenium.remote.RemoteWebDriver;
 //import java.net.*;
  
-public class testNGWordpressExample {
+public class TestngWordpressExample {
  
 // create a WebDriver
 WebDriver driver;

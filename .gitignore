@@ -1,12 +1,7 @@
 *.class
 *.save
-python/*.pyc
-python/behave/*.pyc
-python/locust/*.pyc
+*/test-output/*
+*.pyc
 python/.hypothesis/
-selenium/*.pyc
-selenium/test-output/
-selenium/grubhub/test-output/
-java/test-output/*
 
 
