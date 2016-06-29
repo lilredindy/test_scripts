@@ -1,7 +1,0 @@
-//
-// Prefix header for all source files of the 'k_cluster' target in the 'k_cluster' project
-//
-
-#ifdef __OBJC__
-    #import <Cocoa/Cocoa.h>
-#endif
