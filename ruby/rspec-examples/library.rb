@@ -10,8 +10,8 @@ class Library
 
     def get_books_in_category category
         @books.select do |book|
-            book.category == category
-        end
-    end
+			book.category == category
+		end
+	end
 end
 

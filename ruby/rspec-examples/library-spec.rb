@@ -5,9 +5,8 @@ require 'yaml'
 
 
 describe Library do
-
 	before :all do
-		  lib_arr = [
+		lib_arr = [
             Book.new("JavaScript: The Good Parts", "Douglas Crockford", :development),
             Book.new("Designing with Web Standards", "Jeffrey Zeldman", :design),
             Book.new("Don't Make me Think", "Steve Krug", :usability),
@@ -30,20 +29,20 @@ describe Library do
     	context "with 0 params" do
     		it "should have no books" do
     			lib = Library.new
-    			lib.should have(0).books
+    			expect(lib.books.size).to eq(0)
     		end
     	end
 
     	context "with yaml file param" do
     		it "should have 5 books" do
-    			@lib.should have(5).books
+    			expect(@lib.books.size).to eq(5)
     		end
     	end
     end
 
     describe '#get_books_in_category' do
     	it 'should return all the books in each category' do
-    		@lib.get_books_in_category(:development).should have(2).books
+    		expect(@lib.get_books_in_category(:development).size).to eq(2)
     	end
     end
 

@@ -9,7 +9,7 @@
 describe "RSpec Greeter" do                                              
   it "should say 'Hello RSpec!' when it receives the greet() message" do 
     greeter = RSpecGreeter.new               
-    greeter.greet.should == "Hello RSpec!" 
+    expect(greeter.greet).to eq("Hello RSpec!") 
   end
 end
 

@@ -7,13 +7,13 @@ end
 
 describe Newspaper do
 	it "should be black" do
-		Newspaper.new.colors.should include('black')
+		expect(Newspaper.new.colors).to include('black')
 	end
 	it "should be white" do
-		Newspaper.new.colors.should include('white')
+		expect(Newspaper.new.colors).to include('white')
 	end
 	it "should have 2 colors" do
-		Newspaper.new.colors.count.should eql(3)
+		expect(Newspaper.new.colors.count).to eql(3)
 	end
-	it "should be read all over"
+
 end
