@@ -12,6 +12,12 @@ curl -X POST https://api.locu.com/v2/venue/search -d '{
 }'
 
 
+curl -X POST https://api.locu.com/v2/venue/search -d '{
+"api_key" : "fcb35836fa320e8c7f7382a4a02a29146a100094",
+"fields" : ["name", "website_url"],
+"venue_queries" : [{ "locu_id":"48c224c01a0dbb1183f5" }]
+}'
+
 curl -X POST https://api.locu.com/v2/venue/search/ -d '{
 "api_key":"fcb35836fa320e8c7f7382a4a02a29146a100094",
 "fields":["name"],
@@ -36,15 +42,16 @@ curl -X POST https://api.locu.com/v2/venue/search/ -d '{
 
 curl -X POST https://api.locu.com/v2/venue/search/ -d '{
 "api_key":"fcb35836fa320e8c7f7382a4a02a29146a100094",
-"fields":["name	"],
-"venue_queries":[{"categories":{"str_id": "galleries", "name": "Art Galleries"}, "location":{"postal_code":"11222"}}]
+"fields":["name"],
+"venue_queries":[{"categories":{"str_id": "galleries", "name": "Art Galleries"}, 
+"location":{"postal_code":"11222"}}]
 }'
 
 
 
 curl -X POST https://api.locu.com/v2/venue/search/ -d '{
 "api_key":"fcb35836fa320e8c7f7382a4a02a29146a100094",
-"fields":["name	"],
+"fields":["name"],
 "venue_queries":[{"categories":{"str_id": "mexican", "name": "Mexican"}, "location":{"geo":{"type": "Point","coordinates":[-73.987336, 40.730547]}}}]
 }'
 
