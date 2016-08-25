@@ -2,7 +2,7 @@
 require "test/unit"
 require "watir-webdriver"
  
-class ActiTime < Test::Unit::TestCase
+class ActiTimeForm < Test::Unit::TestCase
 
 ####################################################
   
@@ -28,17 +28,22 @@ class ActiTime < Test::Unit::TestCase
     end
 
 
-	def test_blank_form
+	def test_all_blank_form
 		@browser.goto "https://www.actitime.com/free-online-trial.php"
 		@browser.button(:name => "sendRequest").click
 		assert @browser.alert.exists?
 		assert_match  "First", @browser.alert.text
-        assert_match  "Last", @browser.alert.text
-        assert_match  "Email", @browser.alert.text
+		assert_match  "Last", @browser.alert.text
+		assert_match  "Email", @browser.alert.text
 		@browser.alert.ok
 	end
 
-	def test_missing_email
+
+	#Given I enter all valid form field values 
+	#When the email field value is blank
+	#And I submit the form
+	#Then I should see an alert with email error
+	def test_blank_email_only
 		@browser.goto "https://www.actitime.com/free-online-trial.php"
         @browser.text_field(:name => "firstName").send_keys "shri"
         @browser.text_field(:name => "lastName").send_keys "amin"
@@ -49,8 +54,9 @@ class ActiTime < Test::Unit::TestCase
         assert_match  /Email/, @browser.alert.text
         @browser.alert.ok
 	end
+=end
 
-	def test_email_already_used
+	def test_for_reused_email
 		@browser.goto "https://www.actitime.com/free-online-trial.php"
         @browser.text_field(:name => "firstName").send_keys "shri"
         @browser.text_field(:name => "lastName").send_keys "amin"
@@ -61,7 +67,6 @@ class ActiTime < Test::Unit::TestCase
 		assert @browser.element(:text, err_txt).present?
 		assert @browser.text_field(:name => "firstName").value == "shri"
 	end
-=end
 
 
 	

@@ -18,4 +18,12 @@ class GoogleSearch < Test::Unit::TestCase
     @browser.div(:id => "resultStats").wait_until_present 
     assert @browser.title == "watir - Google Search"
   end
+
+
+	#Given I am on the google search page
+	#Then I should see the google logo
+	def test_google_logo	
+		@browser.element(:id => "foo").click
+	end
+
 end
