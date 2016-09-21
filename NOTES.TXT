@@ -369,6 +369,7 @@ plus this silly town and all it's baggage of bs
 time is deligitimized my undertakings, but meditation 
 
 
+<<<<<<< HEAD
 8.29.16
 the excitement and the forgetting of things 
 
@@ -386,3 +387,7 @@ endless and mysterious irruptions that sweep us up,
 righteous and powerless, 
 convinced of our causes and visions, 
 and possessed by the particular urgency of our times.
+=======
+
+  
+>>>>>>> e14b33e123ad90c675876fb60e7a955320a2e854
