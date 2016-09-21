@@ -1,0 +1,97 @@
+1. On all pages
+
+    Sites should be responsive, changing layout when viewed on mobile, tablet or desktop, to give an optimized user-experience.
+    Ensure your site runs quickly
+    Ensure the cart / basket is visible on every page,
+    Make the checkout button large and in an obvious location.
+    Offer third-party authentication (e.g. signing on with Facebook or Twitter) – but don’t force users to do this; always provide the option to sign-up for an account on your site.
+    Remember that some customers will be arriving from search engines and won't land on your home page, so every page should include consistent and clear navigation.
+    It should be easy to share content from each page via social sharing widgets.
+    Show supplier logos clearly, especially if these are well known brands – again, this helps build trust as visitors will subconsciously associate your brand with theirs.
+    maintain visitors confidence throughout the sell process
+    Make it easy for customers to sign up to your newsletter.
+
+2. Your home page
+
+    This is where many visitors will land on your site, so it’s important to get across what you do quickly and to show the variety of products that visitors might be looking for.
+    Use large appealing imagery that clearly displays products, offers and other promotions.
+    Include ‘Top Selling’ , ‘Featured Products’ and 'Recommended for you' sections.
+
+3. Landing Pages
+
+    Use landing pages for specific promotion campaigns (e.g. Summer Sale or PPC campaigns).
+    Dedicated landing pages convert much better than using the homepage.
+    Set a headline, intro text, banner image and a selection of products that are consistent with what the landing page is being used for. For example, if you have a PPC ad that's referring to Valentine's day, the title of the landing page should mention valentine's gifts and the selection of products should be relevant.
+    Include testimonials, badges, other social proof to reduce customer anxiety.
+    There should be a clear call to action to ‘add to cart’ or begin shopping. Some landing pages go as far as removing all other navigation to focus user's attention on purchasing.
+
+4. Individual Product Pages
+
+    This page should be clear and easy to take in within 3 seconds.
+    Ensure ‘Buy’ buttons are clear and stand out from the page, making them brightly colored and relatively large usually does the trick.
+    A wish list or 'save for later' button should be present but not as prominent.
+    In your photographs, show a variety of angles and some with the product in context
+    Include a product zoom feature so the customers can see the detail.
+    If you can, include an option to embed video. Consumers are increasingly expecting this. They are also more likely to be shared if they are interesting.
+    If there are lots of product details, make sure they are tabbed to keep the page tidy and ensure the visitor can find what they need to know quickly. I
+    If you are a re-seller, you could include product reviews from the media to further boost social proof.
+    If options are out of stock, do not show them, or make it obvious they are out of stock. If possible, allow the user to enter their email address so they are notified when the item is back in stock.
+    Clearly show the amount saved for items in sale.
+    Clearly display your returns policy.
+    Use social networking links to allow visitors to quickly ‘like’ or ‘share’ products.
+    Trust seals, supplier logos and payment methods should be visible even at this stage, perhaps in the footer, so the customer knows they can checkout securely.
+    When a customer clicks your 'buy' or ‘add to cart’ button, show a pop up or some other feedback.
+    In the background, your pages should be generating automatic rich snippets to encourage click through from Google.
+    Ensure your titles have relevant keywords included - be as descriptive as possible.
+    Below a certain threshold, show an "x remaining in stock" label to instill a sense of urgency in the purchase.
+    If you can, show estimated delivery times and prices at this stage
+
+5. The cart page
+
+    Show stock levels if some products are running low
+    Display any specification details and, if applicable, show user-selected options for each product.
+    Provide an easy way to update items in the cart e.g. to remove products and update quantities.
+    At this point, if you can, show estimated delivery times.
+    Include a 'return to shop' link.
+    Provide an area where customers can enter a 'coupon code' to get a discount. Offer free shipping - this is a great way to boost conversions.
+    Offer same-day shipping.
+
+6. The checkout
+
+    Allow guests to checkout without creating account, providing the option to create an account at the end of checkout process.
+    If the visitor is a previous customer, pre-populate everything you can to make checkout as quick and effortless as possible.
+    If you have the capability, provide access to real time support.
+    Offer several different payment options, so customers can choose one they trust/know.
+    Use copy in the order process that boosts trust (e.g. ‘Safety’ information). This includes security badges and testimonials, an SSL certificate signing authority badge, logos of payment methods (e.g. Paypal, Credit Cards) and any other security or payment details that will help gain visitors' trust.
+    Call attention to mistakes (missing fields or incorrect input) clearly.
+    Offer free return shipping to convert doubters.
+    Include a final confirmation page that shows what the customer is about to order, what their billing and delivery addresses are, the payment details they have entered and finally a ‘Confirm’ button.
+    Once the visitor has completed the checkout, a clear 'thank you' page should be shown.
+
+7.Wish list
+
+    If possible, include a ‘wish list’ that allows visitors to record which products they might buy in future.
+
+8.Your blog
+
+    A blog is a great way to inform visitors about your brand and increase traffic.
+    Use Facebook for comments and use social networking links to allow visitors to quickly ‘like’ or ‘share’ posts and products.
+    Set up your Authorship tags via Google+ to provide rich snippets in search results.
+
+9. Emails
+
+    Email is an e-commerce staple - returning visitors are 9x more likely to buy than new visitors.
+    Send ‘thank you’ emails after purchase, as well as order confirmation via email. Use these to ask for feedback to help improve your service.
+    If you provide product reviews on your site, send customers an email two weeks after ordering to encourage them to leave a review.
+    Send personal email updates regularly with products that compliment the customer’s previous purchases.
+    Include the shoppers name on everything you send them, this will encourage people to read the rest.
+    Keep the customer informed.
+    Make it easy for customers to track orders and email them each time the status of an order is updated e.g. to ‘shipped’.
+
+keep it simple with 3 basic ratings:
+
+(1) If you score is more that 70 % in all section output is GOOD
+
+(2) If your score is up to 65 % in all section output is OK but Needs work, but no disaster,
+
+(3) If your score is up to or below 50 %output is BAD need to work on your website
