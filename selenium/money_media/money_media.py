@@ -36,17 +36,17 @@ class moneyMedia(unittest.TestCase):
 
 	def setUp(self): 
 		
-		'''
+		
 		#non-cloud code
-		chrome_path = "C:\\Documents and Settings\\chuck\Desktop\\shri\\Development\\test_tools\\selenium\\chromedriver.exe"
-		self.driver = webdriver.Chrome(chrome_path) 
-		#self.driver = webdriver.Firefox()
+		#chrome_path = "C:\\Documents and Settings\\chuck\Desktop\\shri\\Development\\test_tools\\selenium\\chromedriver.exe"
+		#self.driver = webdriver.Chrome(chrome_path) 
+		self.driver = webdriver.Firefox()
 		self.lib = moneyMediaLib(self.driver)
 		self.driver.implicitly_wait(10) #waits for element to appear in DOM
 		self.driver.get("http://www.financialadvisoriq.com/")
-		'''
-
 		
+
+		'''		
 		#browser stack code
 		desired_cap = {'os': 'Windows', 'os_version': 'xp', 'browser': 'Firefox', 'browser_version': '35' }
 		self.driver = webdriver.Remote(
@@ -55,7 +55,7 @@ class moneyMedia(unittest.TestCase):
 		self.lib = moneyMediaLib(self.driver)
 		self.driver.implicitly_wait(10) #waits for element to appear in DOM
 		self.driver.get("http://www.financialadvisoriq.com/")
-		
+		'''
 
 		'''
 		#sauce labs code
