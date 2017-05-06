@@ -16,5 +16,4 @@ dict4 = {4 : "KLM"}
 
 list = [4,2,1,-1,3,9,-1]
 print any([x > 0 for x in list])
-
 print all([x > 0 for x in list])

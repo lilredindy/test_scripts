@@ -1,64 +1,87 @@
-Feature: As a user I want to search for ads from the main page
+Feature: As a user of Moat I would like to quickly search for Ads  from the main webpage and see the affected results
 
 
 Scenario Outline: Generic Search
 	Go to the search website
-	verify existence of search bar
-	verify placehoder text
-	verify existence of search icon
-	verify existence of searchbar label
-	verify searchbar exists within the html tag <div id="grey-blob">
 	Type the string <str> into the search field
 	Click search
-	Now I am re-directed to the results page
-    And I should see a text label for the search query on results page
-    And I should be presented with thumbnails for ads on result page
-    And the ads should be displayed in table format
-	And the ads should be relavant to the search
-    And there should be search bar on the top of the page for my next search
-	And results page should be presented and fully loaded in one second
-	 
+	Verify results
 	
 	Examples:
 	|str |
-	| Bob Dylan |
-	| Dylan |
-	| Dylan,Bob |
-	| Bob_Dylan |
-	| #BobDylan|
-	| Petco |
-	| PETCO |
-	| New York Times |
-	| nytimes.com |
-	| http://www.artnet.com |
-	| Robert Half Technology Inc. |
-	| Robert Zimmerman? |
-	| Art & Music |
-	|  | #empty string
+	| Orbitz |
+	| PETCO | #all-caps
+	| NewYorker | #spaces removed
+	| New York Times | #multi-word
+	| Nytimes | # alternate text
+	| Bob Dylan | #non-brand
+	| College | #subject
+	| http://www.artnet.com | #url 
+	| #KLM | #hashtag
+	| Robert Half Techology Inc. | #abbrev
+	| Art & Design | #special-chars
+	| Art && Design | #special-chars
+	| Art | Design | #special-chars
+	| 1=1 | #sql injection
+	| " or ""=" | #sql injection
 
 
-Scenario:  Check responsive design for search page
+Scenario: Empty string 
 	Go to the search website
-	Increase the display size for text of the browser
-	Verify the search bar is visible 
-    Type the string into the search field
-    Click search
-    Now I am re-directed to the results page
+	Type the empty_string into the search field
+	Click search
+	Verify no result
 
 
-Scenario: pre-defined searches
+Scenario Outline: 404 Error page
 	Go to the search website
-	click a link from set of pre-defined examples
-	Now I am re-directed to the results page
-	And the ads should be relavant to the search
+	Type the <str> into the search field
+	Click search
+	Verify 404 page 
+
+	Examples:
+	|str |
+	| **** |
+	| ___ |
+	
+
+Scenario: Verify search bar attributes
+	Go to the search website
+	Verify existence of search bar
+	Verify placehoder text in search bar
+	Verify the text label for search bar
+	Verify dimensions and placement of search bar
 
 
-Scenario: remove browsing history or cache
-Scenario: Disable flash player, java, etc
+Scenario: Verify responsive design
+	Go to the search website
+	Increase the font size (Ctrl + '+')
+	Verify existence of search bar
+	Verify placehoder text in search bar
+	Verify the text label for search bar
+	Verify dimensions and placement of search bar
 
 
+Scenario: Clear browsing data
+	Clear browsing data in browser
+	Go to the search website
+	...
 
 
+Scenario: Disable flash player
+	Disable flash player plug-in
+	Go to the search website
+	...
+	
+Scenario: Disable java
+	Disable java 
+	Go to the search website
+	...
+
+Scenario: Verify auto-complete 
+	Go to the search website
+	Type the string <str> into the search field
+	Verify down-down of matches
 
 
 
