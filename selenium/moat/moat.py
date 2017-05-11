@@ -8,7 +8,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
-import sys, time, traceback, random, re
+import os, sys, time, traceback, random, re
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.common.exceptions import NoSuchElementException, ElementNotInteractableException, ElementNotVisibleException
@@ -23,12 +23,6 @@ more than 100 ads in the result set.
 4. Verify the “Share this Ad” feature
 """
 
-import os
-GECKO = 'C:\\Users\\shri amin\\Desktop\\shri\\Development\\test_tools'
-os.environ['PATH'] += GECKO
-print os.environ['PATH']
-
-
 class moat(unittest.TestCase):
 
 	def setUp(self):
@@ -37,7 +31,6 @@ class moat(unittest.TestCase):
 			#self.driver = webdriver.Chrome()
 			self.driver = webdriver.Firefox()
 			self.driver.implicitly_wait(5) #waits for element to appear in DOM
-			self.driver.set_page_load_timeout(3) #waits for page to fully load (readyState = true), but AJAX not included
 			self.driver.get("http://www.moat.com/")
 		except Exception as e:
 			self.driver.save_screenshot(os.getcwd() + os.path.sep + unittest.TestCase.id(self).split(".")[2] + ".png") 			
@@ -59,33 +52,33 @@ class moat(unittest.TestCase):
 	def test_scenario1(self) :
 		"""1. Verify that the “Try These” links are random and that they work."""
 		try:
-			L = [] 
-			count = 3
-			while (count > 0):
+			L = {} 
+			count = 5
+			while (count):
 				self.driver.get("https://www.moat.com/")
-				
-				brands = [brand for brand in self.driver.find_element_by_css_selector("span.random-brand.hidden-xs").find_elements_by_tag_name("a")]		
-				
-				#STEP1: make sure of randomness
-				for brand in brands:
-					#self.assertFalse(list(set(X).intersection(set(e.text))))        
-					self.assertTrue(brand.text not in L)
-					L.append(str(brand.text)) #append new elements to master list
-				print (L)
-	 
-				#STEP2: validate the link works
-				brand_name = brands[0].text
-				brands[0].click() 
-				bold_label = self.driver.find_element_by_css_selector("span.page-type")
-				time.sleep(3) #needs a wait_for_AJAX or something like that, EC class has nothing useful
-				self.assertEqual(bold_label.text, brand_name) 
-				self.assertTrue(brand_name in self.driver.title)
-				#self.assertTrue(ad_text in self.driver.page_source) 
+				brand_links = [brand for brand in self.driver.find_element_by_css_selector("span.random-brand.hidden-xs").find_elements_by_tag_name("a")]		
+			
+				for link in brand_links:
+					if link.text not in L:
+						L[link.text] = 1
+					else:
+						L[link.text] += 1   
+
+				#validate link works
+				retain_txt = brand_links[0].text #DOM destroyed after click
+				brand_links[0].click() 
+				ad_label = self.driver.find_element_by_css_selector("span.page-type")
+				time.sleep(3) #ad_label is updated with AJAX
+				self.assertEqual(ad_label.text, retain_txt) 
+				self.assertTrue(retain_txt in self.driver.title)
 				count -= 1 
+
+			print (L)
+			self.assertFalse(any(l > 2 for l in L.values()), "Try these links not random {}".format(L))
+
 		except Exception as e:
 			self.driver.save_screenshot(os.getcwd() + os.path.sep + unittest.TestCase.id(self).split(".")[2] + ".png") 			
 			self.fail(e)
-
 
 
 	#@unittest.skip("")
@@ -93,13 +86,12 @@ class moat(unittest.TestCase):
 		"2. Verify that the “Recently Seen Ads” are no more than half an hour old."
 		try:
 			count = 5
-			while (count > 0):
+			while (count):
 				self.driver.get("https://www.moat.com/")
-				E_text = [int(e.text.split()[0]) for e in self.driver.find_elements_by_css_selector("div.recently_seen_ads li.featured-agencies h4")]		
-				#print (E_text)
-				#E_text.append(35)
-				self.assertFalse(any(e >= 30 for e in E_text))
-				count -= 1 #decrement 
+				recent_ads = [recent_ad.text for recent_ad in self.driver.find_elements_by_css_selector("div.recently_seen_ads li.featured-agencies h4")]		
+				#recent_ads.append("35 mins ago")
+				self.assertFalse(any((int(recent_ad.split()[0]) >= 30) for recent_ad in recent_ads), "{}".format(recent_ads))
+				count -= 1  
 		except Exception as e:
 			self.driver.save_screenshot(os.getcwd() + os.path.sep + unittest.TestCase.id(self).split(".")[2] + ".png") 			
 			self.fail(e)		
@@ -140,8 +132,6 @@ class moat(unittest.TestCase):
 		except Exception as e:
 			self.driver.save_screenshot(os.getcwd() + os.path.sep + unittest.TestCase.id(self).split(".")[2] + ".png") 			
 			self.fail(e)		
-
-
 
 	#@unittest.skip("")
 	def test_scenario4(self) :
