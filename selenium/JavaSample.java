@@ -22,7 +22,7 @@ public class JavaSample {
 
 		
     //WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-	WebDriver driver = new FirefoxDriver();
+    WebDriver driver = new FirefoxDriver();
 
     driver.get("http://www.google.com/");
     WebElement element = driver.findElement(By.name("q"));
