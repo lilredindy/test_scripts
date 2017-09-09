@@ -1,0 +1,7 @@
+curl "https://www.googleapis.com/language/translate/v2?key=AIzaSyBBraxK8aIGopEkckwXni6mxeaeu8zZFDk&source=fr&target=en&q=moins%20de%20trente%20ans"
+curl "https://www.googleapis.com/language/translate/v2?key=AIzaSyBBraxK8aIGopEkckwXni6mxeaeu8zZFDk&source=en&target=de&q=Hello%20World"
+curl "https://www.googleapis.com/language/translate/v2?key=AIzaSyBBraxK8aIGopEkckwXni6mxeaeu8zZFDk&source=fr&target=en&q=Les%20écorchés"
+curl -H "Content-Type: application/json"  -X POST -d '{"q": "Hello","target": "fr"}' "https://translation.googleapis.com/language/translate/v2?key=AIzaSyBBraxK8aIGopEkckwXni6mxeaeu8zZFDk"
+
+
+
