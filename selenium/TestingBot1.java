@@ -1,4 +1,3 @@
-//import junit.framework.TestCase;
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.*;
 import java.net.URL;
@@ -10,38 +9,29 @@ import org.junit.Test;
 import org.junit.Assert;
 import org.junit.*;
 
-
-import org.junit.runner.JUnitCore;
-import org.junit.runner.Result;
-import org.junit.runner.notification.Failure;
-import org.junit.runner.notification.RunListener;
+import com.testingbot.testingbotrest.TestingbotREST;
+import java.util.*;
 
 
-public class TestingBot1 extends RunListener{
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+
+public class TestingBot1 {
 
 	private WebDriver driver;
-	
-	public void testFailure(Failure failure){ //override RunListener
+	private boolean error = false;
+	private boolean success = true;
+	private String errorMsg = "";
+	private String testName = "";
 
-		System.out.println("Failed test: " + failure.getDescription().getMethodName());
-		System.out.println("Failed test: " + failure.getException());
-		try{
-		
-			System.out.println("SessionID: " + ((RemoteWebDriver)this.driver).getSessionId().toString());
-		}
-		catch (Exception e){
-			System.out.println("Exception:" + e.getMessage());
-		}
-
-	}
-	
 
 	@Before
 	public void setUp() throws Exception {
 		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 		capabilities.setCapability("version", "latest");
 		capabilities.setCapability("platform", Platform.WINDOWS);
-		capabilities.setCapability("name", "Custom Test Runner run11");
+		capabilities.setCapability("name", "Pilot tests");
 
 		this.driver = new RemoteWebDriver(
 		   new URL("http://e9119262abca817b6e89829a3f3b39ed:10b7b3f28b761a8190a08d262506b227@hub.testingbot.com/wd/hub"),
@@ -53,21 +43,90 @@ public class TestingBot1 extends RunListener{
 
 	@Test
 	public void testSimple1() throws Exception {
-		this.driver.get("http://www.espn.com");
-		Assert.assertEquals("ESPN: The Worldwide Leader in Sports", this.driver.getTitle());
+		try {
+			testName = "Get ESPN";
+			driver.get("http://www.espn.com");
+			Assert.assertEquals("ESPN: The Worldwide Leader in Sports", this.driver.getTitle());	
+		}
+		catch (Exception | AssertionError e ){
+			error = true;
+			errorMsg = e.toString();
+			throw e;
+		}
 	}
 
 
 	@Test
 	public void testSimple2() throws Exception {
-		this.driver.get("http://www.google.com");
-		Assert.assertEquals("Gooogle", this.driver.getTitle());
+		try {
+			testName = "Get Google";
+			driver.get("http://www.google.com");
+			Assert.assertEquals("Gooooogle", this.driver.getTitle());
+		}
+		catch (Exception | AssertionError e ){
+			error = true;
+			success = false;
+			errorMsg = e.toString();
+			throw e;
+		}
+		
 	}
 
 
 	@After
 	public void tearDown() throws Exception {
-		this.driver.quit();
+		System.out.println("Session ID:" + ((RemoteWebDriver)this.driver).getSessionId());
+		System.out.println("Error: " + error);
+		
+		/*
+		TestingbotREST r = new TestingbotREST("e9119262abca817b6e89829a3f3b39ed", "10b7b3f28b761a8190a08d262506b227");
+		Map<String,Object> data = new HashMap<String,Object>();
+		data.put("test[success]", error);
+		//data.put("name", "My Test");
+		r.updateTest(((RemoteWebDriver)driver).getSessionId().toString(), data);
+		*/
+
+		//executeBashCommand("curl \"https://api.testingbot.com/v1/user\" -u e9119262abca817b6e89829a3f3b39ed:10b7b3f28b761a8190a08d262506b227");
+		String cmd = String.format("curl \"https://api.testingbot.com/v1/tests/%s\" -X PUT -d \"test[name]=%s\" -d \"test[success]=%s\" -d \"test[status_message]=%s\" -u e9119262abca817b6e89829a3f3b39ed:10b7b3f28b761a8190a08d262506b227", ((RemoteWebDriver)driver).getSessionId(), testName, success, errorMsg);
+		executeBashCommand(cmd);
+		driver.quit();
+	}
+
+		/**
+	 * Execute a bash command. We can handle complex bash commands including
+	 * multiple executions (; | && ||), quotes, expansions ($), escapes (\), e.g.:
+	 *     "cd /abc/def; mv ghi 'older ghi '$(whoami)"
+	 * @param command
+	 * @return true if bash got started, but your command may have failed.
+	 */
+	public static boolean executeBashCommand(String command) {
+	    boolean success = false;
+	    System.out.println("Executing BASH command:\n   " + command);
+	    Runtime r = Runtime.getRuntime();
+	    // Use bash -c so we can handle things like multi commands separated by ; and
+	    // things like quotes, $, |, and \. My tests show that command comes as
+	    // one argument to bash, so we do not need to quote it to make it one thing.
+	    // Also, exec may object if it does not have an executable file as the first thing,
+	    // so having bash here makes it happy provided bash is installed and in path.
+	    String[] commands = {"bash", "-c", command};
+	    try {
+	        Process p = r.exec(commands);
+
+	        p.waitFor();
+	        BufferedReader b = new BufferedReader(new InputStreamReader(p.getInputStream()));
+	        String line = "";
+
+	        while ((line = b.readLine()) != null) {
+	            System.out.println(line);
+	        }
+
+	        b.close();
+	        success = true;
+	    } catch (Exception e) {
+	        System.err.println("Failed to execute bash with command: " + command);
+	        e.printStackTrace();
+	    }
+	    return success;
 	}
 
 }

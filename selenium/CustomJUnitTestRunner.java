@@ -12,14 +12,14 @@ public class CustomJUnitTestRunner {
 	  	//Result result = JUnitCore.runClasses(TestingBot1.class);
 
 	  	JUnitCore core = new JUnitCore();
-	  	core.addListener(new TestingBot1());
+	  	//core.addListener(new TestingBot1());
 	  	Result result = core.run(TestingBot1.class);
 
 
 	  	System.out.println("The number of tests: " + result.getRunCount());
-	  	//System.out.println("The test was success: " + result.wasSuccessful());
+	  	System.out.println("The test was success: " + result.wasSuccessful());
 
-	  	/*
+	  	
 	  	if (!result.wasSuccessful()){
 
 		  	for (Failure f : result.getFailures()){
@@ -28,7 +28,7 @@ public class CustomJUnitTestRunner {
 		  		//System.out.println(f.getMessage());
 		  		System.out.println(f.getException());
 		  	}	
-	  	}*/
+	  	}
 	  }
 
 }
