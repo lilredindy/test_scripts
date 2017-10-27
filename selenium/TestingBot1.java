@@ -37,14 +37,13 @@ public class TestingBot1 {
 		   new URL("http://e9119262abca817b6e89829a3f3b39ed:10b7b3f28b761a8190a08d262506b227@hub.testingbot.com/wd/hub"),
 		   capabilities);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
 	}
 
 
 	@Test
-	public void testSimple1() throws Exception {
+	public void getESPN() throws Exception {
 		try {
-			testName = "Get ESPN";
+			testName = Thread.currentThread().getStackTrace()[1].getMethodName();
 			driver.get("http://www.espn.com");
 			Assert.assertEquals("ESPN: The Worldwide Leader in Sports", this.driver.getTitle());	
 		}
@@ -57,9 +56,9 @@ public class TestingBot1 {
 
 
 	@Test
-	public void testSimple2() throws Exception {
+	public void getGoogle() throws Exception {
 		try {
-			testName = "Get Google";
+			testName = Thread.currentThread().getStackTrace()[1].getMethodName();
 			driver.get("http://www.google.com");
 			Assert.assertEquals("Gooooogle", this.driver.getTitle());
 		}
@@ -88,7 +87,7 @@ public class TestingBot1 {
 
 		//executeBashCommand("curl \"https://api.testingbot.com/v1/user\" -u e9119262abca817b6e89829a3f3b39ed:10b7b3f28b761a8190a08d262506b227");
 		String cmd = String.format("curl \"https://api.testingbot.com/v1/tests/%s\" -X PUT -d \"test[name]=%s\" -d \"test[success]=%s\" -d \"test[status_message]=%s\" -u e9119262abca817b6e89829a3f3b39ed:10b7b3f28b761a8190a08d262506b227", ((RemoteWebDriver)driver).getSessionId(), testName, success, errorMsg);
-		executeBashCommand(cmd);
+		this.executeBashCommand(cmd); //using this with class method
 		driver.quit();
 	}
 
