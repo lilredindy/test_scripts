@@ -17,7 +17,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 
-public class TestingBot1 {
+public class TestingBot {
 
 	private WebDriver driver;
 	private boolean error = false;
