@@ -3,5 +3,8 @@
 */test-output/*
 *.pyc
 python/.hypothesis/
+python/curl-body.txt
+python/curl-headers.txt
+
 
 
