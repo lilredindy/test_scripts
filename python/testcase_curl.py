@@ -12,12 +12,12 @@ class pageTests(unittest.TestCase):
 	else:
 		device_file = ''
 
-class google_tests(unittest.TestCase):
+class google_homepage_tests(unittest.TestCase):
 
         def setUp(self):
             pass
 
-        def test_get_homepage(self):
+        def test_GET(self):
 			call(["curl","-s", "-D", "curl-headers.txt", "-o", "curl-body.txt", "https://www.google.com"])
 			with open("curl-headers.txt") as file:
 				found = any("200" and "OK" in line.split() for line in file)	#done on 1st True 		   
@@ -25,6 +25,21 @@ class google_tests(unittest.TestCase):
 				self.assertTrue(found)
 			file.closed
 
+        def test_GET_with_key_value_query_str(self): #check with db??
+			call(["curl","-s", "-D", "curl-headers.txt", "-o", "curl-body.txt", "https://www.google.com?foo=bar"])
+			with open("curl-headers.txt") as file:
+				found = any("200" and "OK" in line.split() for line in file)	#done on 1st True 		   
+				#if not found:
+				self.assertTrue(found)
+			file.closed
+
+        def test_POST_homepage(self): #is this good test?? better to check db??
+			call(["curl","-s", "-D", "curl-headers.txt", "-o", "curl-body.txt", "-d", "foo=bar","https://www.google.com"])
+			with open("curl-headers.txt") as file:
+				found = any("405 Method Not Allowed" in line for line in file)	#done on 1st True 		   
+				#if not found:
+				self.assertTrue(found)
+			file.closed		
 
         #@unittest.skip("")
        	def test_size(self):  			#this should be run in scheduled time interval?
@@ -33,8 +48,8 @@ class google_tests(unittest.TestCase):
 
         #@unittest.skip("")
        	def test_latency(self):  			#this should be run in scheduled time interval?
-			#call(["curl","-s","-D", "curl-headers.txt", "-o", "curl-body.txt","-w", "@curl-format.txt", "https://www.theatlantic.com"], stdout=file)
-			total_time = check_output(["curl","-s","-D","curl-headers.txt", "-o", "curl-body.txt","-w", "%{time_total}", "https://www.theatlantic.com?{}".format(random.randint(1,1000))])
+			#call(["curl","-s","-D", "curl-headers.txt", "-o", "curl-body.txt","-w", "@curl-format.txt", "https://www.google.com"], stdout=file)
+			total_time = check_output(["curl","-s","-D","curl-headers.txt", "-o", "curl-body.txt","-w", "%{time_total}", "https://www.google.com?{}".format(random.randint(1,1000))])
 			assert float(total_time) < 3
 
         def tearDown(self):
