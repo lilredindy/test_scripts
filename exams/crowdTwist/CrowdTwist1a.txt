@@ -1,0 +1,179 @@
+test cases are based upon the acceptance criteria determined during sprint plan 
+Browsers: Firefox, Chrome, Safari,IE, Edge, etc
+Mobile: Safari, Firefox, Chrome, Opera
+
+
+
+Complete the 3-step manual registration process 
+Use both a combination of valid and invalid form data to determine correct behavior
+Upon successful completion of form verify following:
+1. new account is created on the backend storage
+2. User should arrive at dashboard upon successful completion of form
+3.  User should be logged in
+Start here:  https://thezumiezstash.com/register
+
+Complete only step 1-2 of manual registration and attempt login 
+User should not be able to login
+login url: https://thezumiezstash.com/login 
+
+Attempt registation with previously registered acct 
+focus on duplicate e-mail / username / phonenumber
+
+Verify UI's error detection and presentation is working properly at all steps of registration
+this includes labels, placeholder text, css, placement of form elements, etc
+
+Verify e-mail subscription after registration completed, but only if option was selected
+
+Verify links are working
+terms-of-service, already-have-acct, etc
+
+test around the browser cache & session
+register multiple users over single tcp connection & verify integrity of datasets 
+registered accounts can be verified using the following:
+		-backend storage
+		-via dashboard settings
+		-api call if enabled
+also verify correct persistence of form data across connected sessions
+
+
+perform testing in debug mode to ascertain low-level http status of various request/responses
+	- use firebug / chrome-dev-tools 
+
+
+facebook registration workflow:
+	(a) user initiates by clicking FB btn on sign-up page
+        (b) if not logged into FB user must login to FB, then (c)
+		(c) if already logged into FB then following can occur:
+			(d) if FB user already registered, then he is brought to dashboard
+			(e) if FB user has not been registered, then following can occur:
+				(f) if FB authorization previously granted 
+					(g) user re-directed back to zumiez to complete registration
+						(h) if user completes registration, then (d)	   							
+				(i) user grants FB authorization, then (g)
+							
+- test workflow with different FB login mechanism (FB app, mobile browser, web browser, etc)
+- test step-2 of registration with valid/invalid combination of data
+- test step-2 of registration with previously registered user data like username /phone_number
+- verify fb data (first-name, last_name, date_of_birth, email) propogates into stash correctly
+	-verify backend storage 
+	-verify dashboard settings
+- validate Zumiez app is logged in under FB settings
+
+
+
+Below is subset of detail testcases, prioritize according to 
+
+Input:
+1.  Go to https://thezumiezstash.com/register
+2.  Enter valid e-mail 
+3.  newsletter is checked
+4.  terms-of-service is checked
+5.  click sign-up btn
+Expected Output:
+-User re-directed to https://thezumiezstash.com/register-step-2
+Input:
+6.  Enter valid first_name
+7.  Enter valid last_name
+8.  Enter valid username
+9.  Enter valid password
+10.  Enter valid confirm_password
+11.  click continue btn
+Expected Output:
+-user re-directed to https://thezumiezstash.com/register-step-3
+Input:
+12.  enter valid postal_code
+13.  enter valid date_of_birth
+14.  enter valid phone_number
+15.  enter valid repeat_phone_number
+16.  click the finish_sign-up btn
+Expected output:
+-new account is registered  
+-account data is sent to backend storage              
+-user is re-directed to dashboard (https://thezumiezstash.com/rewards/favorites?sort=All)
+
+
+Input:
+1.  Go to https://thezumiezstash.com/register
+2.  Enter valid e-mail
+3.  newsletter is checked
+4.  terms-of-service is unchecked
+5.  click sign-up btn
+Expected Output:
+-page displays error
+
+
+Input:
+1.  Go to https://thezumiezstash.com/register
+2.  Enter invalid e-mail
+3.  newsletter is checked
+4.  terms-of-service is checked
+5.  click sign-up btn
+Expected Output:
+-page displays error 
+
+
+Input:
+1.  Go to https://thezumiezstash.com/register
+2.  Enter blank e-mail address
+3.  newsletter is checked
+3.  terms-of-service is checked
+4.  click sign-up btn
+Expected Output:
+Page displays error
+
+
+Input:
+1.  Go to https://thezumiezstash.com/register
+2.  Enter registered  e-mail in username field
+3.  terms-of-service checkbox is checked
+4.  click sign-up btn
+Expected Output:
+Page displays error
+
+
+Input:
+1.  Go to https://thezumiezstash.com/register
+2.  Enter valid e-mail
+3.  newsletter is checked
+4.  terms-of-service is checked
+5.  click sign-up btn
+Expected Output:
+-User re-directed to https://thezumiezstash.com/register-step-2
+Input:
+6.  Enter 1invalid form data(first_name, last_name, username, pwd, confirm_pwd)
+7.  click continue btn  
+Expected output:
+page error
+
+
+Input:
+1.  Go to https://thezumiezstash.com/register
+2.  Enter valid e-mail
+3.  newsletter is checked
+4.  terms-of-service is checked
+5.  click sign-up btn
+Expected Output:
+-User re-directed to https://thezumiezstash.com/register-step-2
+Input:
+6.  Enter valid form data(first_name, last_name, username, pwd, confirm_pwd)
+7.  click continue btn
+Expected output:
+-User re-directed to https://thezumiezstash.com/register-step-3
+Input:
+8.  Open new window, goto https://thezumiezstash.com/login
+9.  Enter the username(e-mail)/password used to register
+Expected output:
+page error - account does not exist
+Input:
+10.  goto https://thezumiezstash.com/register-step-3
+11. enter invalid form data (zipcode, date_of_birth, phone_number, confirm_phone_number)
+12. click finish btn
+Expected Output:
+page error 
+
+
+
+
+
+
+

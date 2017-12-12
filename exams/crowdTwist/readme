@@ -1,0 +1,33 @@
+REVISED 12.12.17
+
+question 2 update:
+I have refactored the code a bit to use page object design pattern...
+still more refactoring is possible but would need to evaluate
+
+compile and run:
+javac *.java
+java org.junit.runner.JUnitCore CrowdTwistTests
+
+
+
+question 1.
+
+Normally in my experience the test cases are based upon the acceptance criteria for the component or feature in development.
+These test cases are more developed around heuristical principles
+
+question2.
+
+installation requirements: jdk, junit, chrome 63, chromedriver 2.33, selenium 2.45, 
+compile and execute from CLI:
+javac CrowdTwist.java
+java org.junit.runner.JUnitCore CrowdTwist
+
+I have only tested script with Chrome 63 and ChromeDriver 2.33 on os x
+I have not used page-object design pattern, refactor l8r 
+testcases for both registration and checkout in single test-class
+only handful of testcases automated
+under better circumstances use a DB cleanup script
+
+question3.
+next step is to convert into living document,aka HTML format, and increase visibility via intranet
+

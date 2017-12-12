@@ -1,0 +1,31 @@
+test cases are based upon the acceptance criteria determined during sprint plan 
+Browsers: Firefox, Chrome, Safari,IE, Edge, etc
+Mobile: Safari, Firefox, Chrome, Opera
+login url: https://thezumiezstash.com/login
+
+Manual:
+- Verify basic login is working
+	- use both username & email to test
+- test valid-invalid data combination
+- use login creds of incompleted registrar
+- test if-no-acct link
+- test forgot-password link
+- verify ui behavior with form error
+
+
+Facebook:
+- Verify 1-click login if FB user is already registered
+	1.  click FB btn
+	2.  should be taken directly to dashboard
+- If unregistered user, then guided into registration process 
+	
+
+-test in debug mode with firebug or chrome-devtools
+
+
+
+
+
+
+
+

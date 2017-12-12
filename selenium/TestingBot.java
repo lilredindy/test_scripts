@@ -9,7 +9,7 @@ import org.junit.Test;
 import org.junit.Assert;
 import org.junit.*;
 
-import com.testingbot.testingbotrest.TestingbotREST;
+//import com.testingbot.testingbotrest.TestingbotREST;
 import java.util.*;
 
 
@@ -47,7 +47,7 @@ public class TestingBot {
 			driver.get("http://www.espn.com");
 			Assert.assertEquals("ESPN: The Worldwide Leader in Sports", this.driver.getTitle());	
 		}
-		catch (Exception | AssertionError e ){
+		catch ( | AssertionError e ){
 			error = true;
 			errorMsg = e.toString();
 			throw e;

@@ -1,0 +1,108 @@
+ATMosphere Test Plan 1.0 
+Last updated: 12.11.17
+
+Introduction:
+    This document is meant to provide a means of understanding the testing as related to development of ATMosphere v1 system.  It covers the five w's (who, what, when, where, why) and how regarding testing.  The motivation for testing is ensure a quality product for customers delivered on time.
+
+Product Description:
+    Add a short bio of the ATM system here...something like, ATMosphere is the state of the art concept that can dispense cash without needing to insert a plastic card into a machine..with this new technology the system uses face-recognition technology to identify a customer and a PIN code for verification.. 
+
+References:
+    SRS / BRD - Requirements 
+    High-level architecture diagram - infrastructure/system map and interactions
+    Design Spec - detailed workflow for various ATMosphere components 
+    use cases - 
+    product backlog - 
+    sprint backlog - contains acceptance criteria??
+    design wireframes -    
+    testcases and testcode -   
+
+Assumptions and Dependencies:
+    -Testing commences at the begining of development vs async
+        -- otherwise reverse engineer...extrapolate requirements, acceptance criteria, usecases, then write testcases
+    -There is no hardware requirement for ATMosphere??  - S.A. 10.11.17
+    -feature set toggles depending on hardware
+    
+
+Test Items:
+    Subsystems / Major Components:
+        ATM API - programmatic interface of ATMosphere system 
+        ATM web app - UI for interacting with the virtual ATM software (means no cash in hand :< )
+        ATM data model - backend system responsible for persistent storage of ATM transactions
+        Verification subsystem - face-recognizing software 
+        ATM hardware - for getting real cash and other hard things
+        ATM Controller - turns features on/off depending on hardware set  
+        ...
+        ...
+
+    Features / Tasks / UseCase :
+        Authenticate & authorize customers 
+        Check balance(s)
+        Withdraw mula
+        Perform other transactions 
+        ...
+        ...
+            
+    
+Approach:
+    The approach is basically SCRUM (iterative + incremental). Update testplan with each sprint cycle like a journal. As far as testing, we can use any testing technique that ensures quality.  This includes whitebox, greybox, blackbox, automation, ad-hoc, non-functional, unit, integration, end-to-end, or just thumbs up/down ..
+    Generate feeback loop so that devs, BAs, PMs, PO, etc are aware of testing activity. anything that blocks the test effort needs to be communicated openly...
+    Always keep in mind where a particular testing activity fits into the big picture, 
+    We will track the progress of test items in the 'Item Pass/Fail Criteria'. See below for more detail.  
+
+
+Item Pass/Fail Criteria:
+    Each sprint plan should generate acceptance.  This is a substitute for requirements.  Without acceptance criteria testing is going to be flaky.  Give PASS/FAIL to each task
+
+    Example:
+    Authenticate customers:
+        -create the uid/password data model 
+            - A.C. - all tables are created, stored procedures, etc - PASS
+            << Link to external testcases >>
+        -design wireframe for web app 
+            - A.C. - designer handoff the completed diagrams to dev - PASS
+        -implement web verification web 
+            - A.C. - ATM users are authorized to make ATM transactions via website - PASS
+            << Link to external testcases >>
+
+
+Test Deliverables / Tasks / Schedule :
+    testing doesn't really have deliverables...testing artifacts are not shipped
+    
+    -Finished picking test-tools  -S.A. 11.11.17
+    -building framework for automation scripts 
+    -1st sprint begins 12.02.17
+    -completed writing TCs for <<fast cash feature >> 12.03.17
+    -sprint 3 testing is complete 12.11.17
+    -sprint 4 testing underway... 12.15.17
+    ....
+    ...
+
+
+Test Environment:
+
+    - All major browsers and operating systems
+        - firefox, chrome, IE, opera, 
+        - osx, windows, linux, 
+    - test env = https://kickstart:8085
+    - staging = https://
+    - production =  
+    - hardware env = 
+
+    
+Estimate:
+    TBD 
+
+Responsibilities:
+    tester should bring final resolution for feature or requirement 
+
+Risks:
+    - changing requirements
+    - failure to understand scope 
+    - won't be able to test on hardware, just virtual web 
+
+
+Approvals:
+    Use this document to help organize ideas and document process....it's a living document
+
+
