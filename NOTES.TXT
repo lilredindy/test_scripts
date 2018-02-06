@@ -398,5 +398,23 @@ The True Organic light casts no shadow.
 
 
 
-12.2.34
+12.31.17
+The point where the Moon crosses the ecliptic moving from South to North Celestial Latitude is the North Node, 
+while the point where it crosses moving from North back to South Celestial Latitude is the South Node.
+
+In astrology, planets are the forces; the signs are the fields (kshethra) the forces operate in.
+
+"Om sraam sreem sraum sah ketave namaha"
+
+When interpreting a birth chart, the “chart ruler” is the planetary ruler of the sign on the Ascendant, or first house
+
+
+Om Ram Rahave Namaha
+Om Hum Kem Ketave Namah
+
+
+
+1.7.18
+The miner or mining pool that includes a transaction in a block collects the transaction fee.
+
 
