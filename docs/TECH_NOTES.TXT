@@ -2,9 +2,8 @@ XML is used to tag the data, SOAP is used to transfer the data, WSDL is used for
 ________________________________________________
 The access logs of most web servers keep detailed information about where visitors came from and how they browsed the hosted site. 
 ________________________________________________
-You don't actually write instance methods in Python; what you write is class methods which (must) take an instance as a first parameter. And therefore, you’ll have to place the instance parameter somewhere explicitly.
+You don't actually write instance methods in Python; what you write is class methods which (must) take an instance as a first parameter. And therefore, youâ€™ll have to place the instance parameter (self) somewhere explicitly.
 ________________________________________________
-In order to bootstrap the database system, a freshly initialized system always contains one predefined role. This role is always a "superuser", and by default (unless altered when running initdb) it will have the same name as the operating system user that initialized the database cluster. Customarily, this role will be named postgres. In order to create more roles you first have to connect as this initial role.
 ________________________________________________
 installing appium with node.js was a bitch:
 sudo chown -R <yourUsername>:staff /usr/local/lib
@@ -59,18 +58,7 @@ _____________________________________________
 Most HTTP conversation does not drop the connection on every request, but rather multiple HTTP requests are pipelined in the same connection. In HTTP 1.0, client can indicate that it wants to send multiple requests in the same connection by using Connection: Keep-Alive header, in HTTP 1.1, keep alive is the default, and client and server only drops connection when explicitly requested and on timeout.
 The reason HTTP is stateless is not because it uses a new connection for each request, but because every request is independent of any other requests whether they are transported through the same connection or a different connection. In other words every request contains every information that is needed to process that request. 
 ________________________________________________
-Continuous Delivery doesn't mean every change is deployed to production ASAP. It means every change is proven to be deployable at any time
 
--Continuous integration: your application always builds and passes its tests, including all the pieces from different sub-teams.
--Continuous delivery: your application always builds and deploys to a test environment and passes its tests.
--Continuous deployment: your application is always ready to deploy to production through a largely automated process.
-________________________________________________
-Libraries that bridge the gap between procedural code and SQL are known as object-relational mappers, or ORMs. ORMs typically represent database records as instances of a particular class. In order to represent 50 records, you would need 50 instances of a class, with the state of each instance reflecting the names, types and values of the columns in that record. 
-_______________________________________________
-So "origin" is a clone of your fork repo, from which you push and pull. "Upstream" is a name for the main repo, from where you pull and keep a clone of your fork updated, but you don't have push access to it.
-_______________________________________________
-1.  create the database
-2.  populate tables with data
-3.  run sql code
-4.  test the sql code
-5.  destroy the database
+- Well-designed Hybrid apps running on top of a modern JavaScript UI framework are definitely fast enough compared to native apps
+- advantages of hybrid app:You get to utilize your existing JS, HTML, and CSS skillset to develop a single codebase that runs on both iOS and Android. 
+- on the mac when creating hybrid app still need to sue ios webview template
