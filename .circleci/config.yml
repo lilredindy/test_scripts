@@ -34,7 +34,7 @@ jobs:
           background: true
 
       
-      - run: cd "$CIRCLE_WORKING_DIRECTORY/test_scripts/exams/crowdTwist/"
+      - run: cd ~/project/test_scripts/exams/crowdTwist/
       - run: javac *.java
       - run: java org.junit.runner.JUnitCore CrowdTwistTests
       
