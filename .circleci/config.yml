@@ -35,7 +35,7 @@ jobs:
 
       
       - run: cd ~/project/exams/crowdTwist/
-      - run: javac *.java
+      - run: javac -classpath ~/project/selenium-server-standalone-3.5.3.jar *.java
       - run: java org.junit.runner.JUnitCore CrowdTwistTests
       
 
