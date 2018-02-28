@@ -35,7 +35,7 @@ jobs:
 
       - run: sudo apt-get install junit
       - run: javac -classpath ~/project/selenium-server-standalone-3.5.3.jar ~/project/exams/crowdTwist/*.java
-      - run: java -classpath /usr/share/java/junit-3.8.2.jar org.junit.runner.JUnitCore ~/project/exams/crowdTwist/CrowdTwistTests
+      - run: java -classpath /usr/share/java/junit.jar  junit.textui.TestRunner ~/project/exams/crowdTwist/CrowdTwistTests
       
       
       # Download and cache dependencies
