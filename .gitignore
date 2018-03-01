@@ -5,6 +5,7 @@
 python/.hypothesis/
 python/curl-body.txt
 python/curl-headers.txt
+.DS_Store
 
 
 

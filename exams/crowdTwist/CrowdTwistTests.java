@@ -1,6 +1,7 @@
 import org.junit.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import java.util.concurrent.TimeUnit;
 import java.util.Random;
 
@@ -14,7 +15,18 @@ public class CrowdTwistTests {
 
 	@Before 
 	public void setUp() throws Exception{
-		driver = new ChromeDriver();
+
+		String browser = System.getProperty("browser");
+		System.out.println("browser:"+ browser);
+
+
+		if (browser.equals("chrome"))
+			driver = new ChromeDriver();
+		else if (browser.equals("firefox"))
+			driver = new FirefoxDriver(); 
+		else
+			driver = new ChromeDriver(); //default 4 now
+
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 	
