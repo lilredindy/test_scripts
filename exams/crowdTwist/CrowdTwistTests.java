@@ -1,5 +1,6 @@
 import org.junit.*;
 import org.openqa.selenium.*;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import java.util.concurrent.TimeUnit;
@@ -17,13 +18,15 @@ public class CrowdTwistTests {
 	public void setUp() throws Exception{
 
 		String browser = System.getProperty("browser");
-		System.out.println("browser:"+ browser);
-
 
 		if (browser.equals("chrome"))
 			driver = new ChromeDriver();
-		else if (browser.equals("firefox"))
-			driver = new FirefoxDriver(); 
+		else if (browser.equals("firefox")){
+
+			DesiredCapabilities dc = DesiredCapabilities.firefox();
+			dc.setCapability("marionette", false);
+			driver = new FirefoxDriver(dc); 
+		}
 		else
 			driver = new ChromeDriver(); //default 4 now
 
