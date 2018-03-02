@@ -4,8 +4,19 @@
 #
 version: 2
 jobs:
-
   build:
+    docker:
+      # specify the version you desire here
+      - image: circleci/python:3.5-jessie-browsers
+
+    environment:
+    
+    steps:
+      - checkout
+
+ 
+
+  build2:
     docker:
       # specify the version you desire here
       - image: circleci/openjdk:8-jdk-node-browsers
