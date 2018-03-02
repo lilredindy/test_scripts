@@ -13,6 +13,15 @@ jobs:
     
     steps:
       - checkout
+
+      ###################################
+      # Download geckodriver
+      ###################################
+      - run: wget https://github.com/mozilla/geckodriver/releases/download/v0.18.0/geckodriver-v0.18.0-linux64.tar.gz
+      - run: tar -xvzf geckodriver*
+      - run: chmod +x geckodriver
+      - run: sudo mv geckodriver /usr/local/bin
+
       - run: sudo pip install selenium
       - run: python selenium/code_bat.py
  
