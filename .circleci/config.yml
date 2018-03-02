@@ -31,7 +31,6 @@ jobs:
       - run: tar -xvzf geckodriver*
       - run: chmod +x geckodriver
       - run: sudo mv geckodriver /usr/local/bin
-      - run: sudo service dbus start
       
       - run:
           name: Download Selenium
