@@ -13,8 +13,8 @@ jobs:
     
     steps:
       - checkout
-      - sudo pip install selenium
-      - python selenium/code_bat.py
+      - run: sudo pip install selenium
+      - run: python selenium/code_bat.py
  
 
   java-tests:
