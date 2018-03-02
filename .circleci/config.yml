@@ -45,7 +45,7 @@ jobs:
       - run: sudo apt-get install junit4
       - run: javac -classpath ~/project/selenium-server-standalone-3.5.3.jar ~/project/exams/crowdTwist/*.java
       - run: java -Dbrowser=chrome -cp /home/circleci/project/selenium-server-standalone-3.5.3.jar:/usr/share/java/junit4.jar:/home/circleci/project/exams/crowdTwist/:.  org.junit.runner.JUnitCore CrowdTwistTests      
-      - run: java -Dbrowser=firefox -cp /home/circleci/project/selenium-server-standalone-3.5.3.jar:/usr/share/java/junit4.jar:/home/circleci/project/exams/crowdTwist/:.  org.junit.runner.JUnitCore CrowdTwistTests
+      #- run: java -Dbrowser=firefox -cp /home/circleci/project/selenium-server-standalone-3.5.3.jar:/usr/share/java/junit4.jar:/home/circleci/project/exams/crowdTwist/:.  org.junit.runner.JUnitCore CrowdTwistTests
       
       # Download and cache dependencies
       #- restore_cache:
