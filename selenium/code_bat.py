@@ -1,10 +1,13 @@
 import unittest
 from selenium import webdriver
+import sys
 #import time
 
 
 class code_bat(unittest.TestCase):
-	driver = webdriver.Firefox()
+
+	driver = webdriver.Chrome()
+
 
 	def setUp(self):
 		#self.driver = webdriver.Firefox()
