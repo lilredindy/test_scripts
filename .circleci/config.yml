@@ -23,6 +23,12 @@ jobs:
     steps:
       - checkout
       - run: mkdir test-reports
+      
+      - run: curl -O https://github.com/mozilla/geckodriver/releases/download/v0.18.0/geckodriver-v0.18.0-linux64.tar.gz
+      - run: tar -xvzf geckodriver*
+      - run: mv geckodriver /usr/local/bin
+      - run: chmod +x geckodriver
+      
       - run:
           name: Download Selenium
           command: |

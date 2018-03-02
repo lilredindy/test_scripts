@@ -13,7 +13,6 @@ public class CrowdTwistTests {
 	String registered_email = "foobar23@gmail.com";
 	String unregistered_email = "";
 
-
 	@Before 
 	public void setUp() throws Exception{
 
@@ -23,9 +22,12 @@ public class CrowdTwistTests {
 			driver = new ChromeDriver();
 		else if (browser.equals("firefox")){
 
-			DesiredCapabilities dc = DesiredCapabilities.firefox();
-			dc.setCapability("marionette", false);
-			driver = new FirefoxDriver(dc); 
+			//DesiredCapabilities dc = DesiredCapabilities.firefox();
+			//dc.setCapability("marionette", false);
+			//driver = new FirefoxDriver(dc); 
+
+			System.setProperty("webdriver.gecko.driver", "/usr/local/bin/geckodriver");
+			driver = new FirefoxDriver();
 		}
 		else
 			driver = new ChromeDriver(); //default 4 now
