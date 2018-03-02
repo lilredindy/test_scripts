@@ -9,22 +9,6 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/openjdk:8-jdk-node-browsers
-    steps:
-      - checkout
-      - run: mkdir test-reports
-      - run:
-          name: Download Selenium
-          command: |
-            curl -O http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar
-      - run: sudo apt-get install junit4
-      - run: javac -classpath ~/project/selenium-server-standalone-3.5.3.jar ~/project/selenium/TestingBot.java
-      - run: java -cp /home/circleci/project/selenium-server-standalone-3.5.3.jar:/usr/share/java/junit4.jar:/home/circleci/project/selenium/:.  org.junit.runner.JUnitCore TestingBot    
-      
-
-  build2:
-    docker:
-      # specify the version you desire here
-      - image: circleci/openjdk:8-jdk-node-browsers
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -42,7 +26,7 @@ jobs:
       - run: mkdir test-reports
       
       ###################################
-      # Download geckodriver 
+      # Download geckodriver
       ###################################
       - run: wget https://github.com/mozilla/geckodriver/releases/download/v0.18.0/geckodriver-v0.18.0-linux64.tar.gz
       - run: tar -xvzf geckodriver*
@@ -60,9 +44,20 @@ jobs:
           background: true
 
       - run: sudo apt-get install junit4
+      
+      ###################################
+      # Start local selenium tests
+      ###################################
       - run: javac -classpath ~/project/selenium-server-standalone-3.5.3.jar ~/project/exams/crowdTwist/*.java
       - run: java -Dbrowser=chrome -cp /home/circleci/project/selenium-server-standalone-3.5.3.jar:/usr/share/java/junit4.jar:/home/circleci/project/exams/crowdTwist/:.  org.junit.runner.JUnitCore CrowdTwistTests      
       #- run: java -Dbrowser=firefox -cp /home/circleci/project/selenium-server-standalone-3.5.3.jar:/usr/share/java/junit4.jar:/home/circleci/project/exams/crowdTwist/:.  org.junit.runner.JUnitCore CrowdTwistTests
+      
+      
+      ###################################
+      # Start cloud tests
+      ###################################
+      - run: javac -classpath ~/project/selenium-server-standalone-3.5.3.jar ~/project/selenium/TestingBot.java
+      - run: java -cp /home/circleci/project/selenium-server-standalone-3.5.3.jar:/usr/share/java/junit4.jar:/home/circleci/project/selenium/:.  org.junit.runner.JUnitCore TestingBot    
       
       # Download and cache dependencies
       #- restore_cache:
