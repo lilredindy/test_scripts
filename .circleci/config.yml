@@ -5,7 +5,7 @@
 version: 2
 jobs:
 
-  build:
+  build1:
     docker:
       # specify the version you desire here
       - image: circleci/openjdk:8-jdk-node-browsers
@@ -21,7 +21,7 @@ jobs:
       - run: java -cp /usr/share/java/junit4.jar:/home/circleci/project/selenium/:.  org.junit.runner.JUnitCore TestingBot      
       
 
-  build:
+  build2:
     docker:
       # specify the version you desire here
       - image: circleci/openjdk:8-jdk-node-browsers
