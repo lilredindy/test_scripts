@@ -26,8 +26,8 @@ jobs:
       
       - run: wget https://github.com/mozilla/geckodriver/releases/download/v0.18.0/geckodriver-v0.18.0-linux64.tar.gz
       - run: tar -xvzf geckodriver*
-      - run: mv geckodriver /usr/local/bin
       - run: chmod +x geckodriver
+      - run: sudo mv geckodriver /usr/local/bin
       
       - run:
           name: Download Selenium
