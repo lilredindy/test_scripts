@@ -13,7 +13,8 @@ jobs:
     
     steps:
       - checkout
-
+      - sudo pip install selenium
+      - python selenium/code_bat.py
  
 
   java-tests:
@@ -93,5 +94,4 @@ workflows:
     jobs:
       - java-tests
       - python-tests
-
 
