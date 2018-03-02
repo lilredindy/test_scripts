@@ -22,11 +22,11 @@ public class CrowdTwistTests {
 			driver = new ChromeDriver();
 		else if (browser.equals("firefox")){
 			
+			System.setProperty("webdriver.gecko.driver", "/usr/local/bin/geckodriver");
 			DesiredCapabilities dc = DesiredCapabilities.firefox();
 			dc.setCapability("marionette", true);
 			driver = new FirefoxDriver(dc); 
 
-			//System.setProperty("webdriver.gecko.driver", "/usr/local/bin/geckodriver");
 			//driver = new FirefoxDriver();
 		}
 		else
