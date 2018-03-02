@@ -47,7 +47,7 @@ public class TestingBot {
 			driver.get("http://www.espn.com");
 			Assert.assertEquals("ESPN: The Worldwide Leader in Sports", this.driver.getTitle());	
 		}
-		catch ( | AssertionError e ){
+		catch ( Exception | AssertionError e ){
 			error = true;
 			errorMsg = e.toString();
 			throw e;
