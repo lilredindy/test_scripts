@@ -24,10 +24,14 @@ jobs:
       - checkout
       - run: mkdir test-reports
       
+      ###################################
+      # Download geckodriver 
+      ###################################
       - run: wget https://github.com/mozilla/geckodriver/releases/download/v0.18.0/geckodriver-v0.18.0-linux64.tar.gz
       - run: tar -xvzf geckodriver*
       - run: chmod +x geckodriver
       - run: sudo mv geckodriver /usr/local/bin
+      - run: sudo service dbus start
       
       - run:
           name: Download Selenium
