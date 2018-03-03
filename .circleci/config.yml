@@ -4,48 +4,36 @@
 #
 version: 2
 jobs:
-  python-tests:
+  python-local-tests:
     docker:
-      # specify the version you desire here
       - image: circleci/python:3.5-jessie-browsers
-
     environment:
-    
     steps:
       - checkout
-
-      ###################################
-      # Download geckodriver
-      ###################################
       - run: wget https://github.com/mozilla/geckodriver/releases/download/v0.18.0/geckodriver-v0.18.0-linux64.tar.gz
       - run: tar -xvzf geckodriver*
       - run: chmod +x geckodriver
       - run: sudo mv geckodriver /usr/local/bin
-
       - run: sudo pip install selenium
       - run: python selenium/code_bat.py
- 
 
-  java-tests:
+  python-cloud-tests:
     docker:
-      # specify the version you desire here
-      - image: circleci/openjdk:8-jdk-node-browsers
-      
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
-
-    #working_directory: ~/project
-
+      - image: circleci/python:3.5-jessie-browsers
     environment:
-      # Customize the JVM maximum heap limit
-     # MAVEN_OPTS: -Xmx3200m
-    
+    steps:
+      - checkout
+      - run: sudo pip install selenium
+      - run: python selenium/sauce_labs.py
+
+
+  java-local-tests:
+    docker:
+      - image: circleci/openjdk:8-jdk-node-browsers
+    environment:
     steps:
       - checkout
       - run: mkdir test-reports
-      
       ###################################
       # Download geckodriver
       ###################################
@@ -53,7 +41,6 @@ jobs:
       - run: tar -xvzf geckodriver*
       - run: chmod +x geckodriver
       - run: sudo mv geckodriver /usr/local/bin
-      
       - run:
           name: Download Selenium
           command: |
@@ -63,44 +50,32 @@ jobs:
           command: |
             java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
           background: true
-
       - run: sudo apt-get install junit4
-      
-      ###################################
-      # Start local selenium tests
-      ###################################
       - run: javac -classpath ~/project/selenium-server-standalone-3.5.3.jar ~/project/exams/crowdTwist/*.java
       - run: java -Dbrowser=chrome -cp /home/circleci/project/selenium-server-standalone-3.5.3.jar:/usr/share/java/junit4.jar:/home/circleci/project/exams/crowdTwist/:.  org.junit.runner.JUnitCore CrowdTwistTests      
       #- run: java -Dbrowser=firefox -cp /home/circleci/project/selenium-server-standalone-3.5.3.jar:/usr/share/java/junit4.jar:/home/circleci/project/exams/crowdTwist/:.  org.junit.runner.JUnitCore CrowdTwistTests
       
-      
-      ###################################
-      # Start cloud tests
-      ###################################
+  java-cloud-tests:
+    docker:
+      - image: circleci/openjdk:8-jdk-node-browsers
+    environment:
+    steps:
+      - checkout
+      - run: mkdir test-reports
+      - run:
+          name: Download Selenium
+          command: |
+            curl -O http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar
+      - run: sudo apt-get install junit4
       - run: javac -classpath ~/project/selenium-server-standalone-3.5.3.jar ~/project/selenium/TestingBot.java
       - run: java -cp /home/circleci/project/selenium-server-standalone-3.5.3.jar:/usr/share/java/junit4.jar:/home/circleci/project/selenium/:.  org.junit.runner.JUnitCore TestingBot    
       
-      # Download and cache dependencies
-      #- restore_cache:
-       #   keys:
-        #  - v1-dependencies-{{ checksum "pom.xml" }}
-          # fallback to using the latest cache if no exact match is found
-         # - v1-dependencies-
-
-      #- run: mvn dependency:go-offline
-
-     # - save_cache:
-      #    paths:
-       #     - ~/.m2
-        #  key: v1-dependencies-{{ checksum "pom.xml" }}
-        
-      # run tests!
-     # - run: mvn integration-test
 
 workflows:
   version: 2
   build-test-all:
     jobs:
-      - java-tests
-      - python-tests
-
+      - java-local-tests
+      - java-cloud-tests
+      - python-local-tests
+      - python-cloud-tests
