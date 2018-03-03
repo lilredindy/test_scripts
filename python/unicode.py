@@ -1,0 +1,6 @@
+b = bytearray([0xd9, 0x83, 0xd9, 0x84, 0xd8, 0xa8])
+message = b.decode('utf-8')
+print repr(message)
+
+
+
