@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.remote.MobilePlatform;
-
 import io.appium.java_client.remote.IOSMobileCapabilityType;
 import io.appium.java_client.ios.IOSDriver;
 
@@ -19,16 +18,26 @@ class mobile1 {
 
 		DesiredCapabilities cap = new DesiredCapabilities();
 		cap.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.IOS);
+
+                        cap.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone sucks"); //works
+        cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "XCuiTest");
+        cap.setCapability(MobileCapabilityType.UDID, "4443449a13de797bc614c5d0fe785168371a7492");
 		//cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9.3");
         //cap.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone 5s (9.3) [B47D5711-547D-40EE-BC36-7CB7C7BD192C] (Simulator)");
-        cap.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone 5s Simulator"); //works
+       // cap.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone 5s Simulator"); //works
         //cap.setCapability(MobileCapabilityType.UDID, "F3DD0093-DEF4-4694-AECF-CB7BBB67D566");
         //cap.setCapability(MobileCapabilityType.UDID, "iPhone 5s (9.3) [B47D5711-547D-40EE-BC36-7CB7C7BD192C] (Simulator)");
         //cap.setCapability(MobileCapabilityType.BROWSER_NAME, "Safari");         
         //cap.setCapability(MobileCapabilityType.APP, "");
         cap.setCapability(IOSMobileCapabilityType.BUNDLE_ID, "com.apple.Maps");
-		cap.setCapability("locationServicesEnabled", true);
-		cap.setCapability("locationServicesAuthorized", true);
+
+        cap.setCapability(IOSMobileCapabilityType.KEYCHAIN_PATH,  "/Users/shriamin/Library/Keychains/appium_keychain.keychain-db");
+        cap.setCapability(IOSMobileCapabilityType.KEYCHAIN_PASSWORD, "I81pand@");
+        //cap.setCapability(IOSMobileCapabilityType.XCODE_ORG_ID, "shri.amin@gmail.com (W7CG2B3D79)");
+	    //cap.setCapability(IOSMobileCapabilityType.XCODE_SIGNING_ID, "iPhone Developer");
+        
+        cap.setCapability("locationServicesEnabled", true);
+	cap.setCapability("locationServicesAuthorized", true);
 
 
         IOSDriver driver; 
@@ -41,8 +50,8 @@ class mobile1 {
         	//e.printStackTrace();
         	throw e;
         }
-		Location location = new Location(30.267, -97.7430, 0.0);
-		driver.setLocation(location);
+		//Location location = new Location(30.267, -97.7430, 0.0);
+		//driver.setLocation(location);
 
 		driver.findElementByAccessibilityId("Tracking").click();
 		driver.findElementByAccessibilityId("Search for place or address").click();

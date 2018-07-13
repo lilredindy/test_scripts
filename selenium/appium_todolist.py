@@ -13,10 +13,12 @@ class ToDoListsTests(unittest.TestCase):
     def setUp(self):
       desired_caps = {
         'platformName': 'iOS',
-        'platformVersion': '9.3',
-        'deviceName': 'iPhone Simulator',
+        #'platformVersion': '10.3',
+        'deviceName': 'iPhone sucks',
+        'udid': '4443449a13de797bc614c5d0fe785168371a7492',
         'automationName': 'XCUITest',
-        'app': '/Users/shriamin/Library/Developer/Xcode/DerivedData/todolist-dbyycwgvumhydzfgqtlgfohtsljz/Build/Products/Debug-iphonesimulator/todolist.app',
+        #'app': '/Users/shriamin/Library/Developer/Xcode/DerivedData/todolist-dbyycwgvumhydzfgqtlgfohtsljz/Build/Products/Debug-iphonesimulator/todolist.app',
+        'app': '/Users/shriamin/Library/Developer/Xcode/DerivedData/todolist-dbyycwgvumhydzfgqtlgfohtsljz/Build/Products/Debug-iphoneos/todolist.app',
       }
       
       self.driver = webdriver.Remote(command_executor='http://127.0.0.1:4723/wd/hub', desired_capabilities=desired_caps)
