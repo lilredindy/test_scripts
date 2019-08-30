@@ -1,0 +1,85 @@
+test plan:
+
+testing tasks:
+1.  understand the project goals and constraints:
+	-this seems similar to health republic proj...
+	-given the timeline automation is questionable...
+	-how to document the testing effort?  never done it really....
+	-this is AGILE?
+	-dev framework is larvel with sql backend
+2.  total testing effort in hours = 70-100 hrs
+	-seems like 2 big sprints are being planned...not sure
+	-so what are the testing deliverables for both sprints?
+2.  create a test plan -> total testing effort / testing tasks 
+3.  create test cases
+4.  execute test cases as needed
+5.  report defects  
+6.  report timely METRICS  
+7.  checklist or test ideas vs test cases
+
+
+-larvel framework, sql backend
+-what LEVEL of testing is needed?  unit, integration, system, uat?
+-HOSTING TEST ARTIFACTS
+-INCREMENTAL VS ITERATIVE VS BOTH
+-high-quality working software
+-changing requirements 
+- Individuals and interactions over processes and tools
+ Working software over comprehensive documentation
+ Customer collaboration over contract negotiation
+ Responding to change over following a plan
+- features 
+-unit test = 1 module, integration = 2 or more, system = all modules 
+-tests for unique code paths
+-DATABASE TESTING? 
+-laravel auto-generates registration, login, logout, forgot password,auth code
+-verify the code structure??
+-DOCUMENT THE WORK U DO!!!
+
+
+STEP1:
+1. WHAT IS TESTING SCOPE? STUPID QUESTION
+2.  MAKE A TEST PLAN?
+3. IDENTIFY IF USER STORIES (REQUIREMENTS) EXIST (GENERATE THEM?)
+4. IDENTIFY ACCEPTANCE CRITERIA
+5. IF DEV WORK IS NOT TASK ORIENTED THEN CREATE THOSE WORKGROUPS
+6. FOR EACH DEV TASK CROSS-REFERENCE CORESPONDING STORY
+	- DETERMINE IF THE TASK MAKES SENSE   
+7. FOR EACH DEV TASK DETERMINE LOW-LEVEL ACCEPTANCE (
+	- LEVELS OF TESTING / TYPES OF TESTING 
+	- CREATE TEST SCENARIOS / TESTCASES
+		-FORCE HTTP ERRORS, THE DISPLAY OF ERROR TO USER
+				 
+	- REFINE ACCEPTANCE OF HIGHER LEVEL STORY IF NECESSARY
+	
+
+
+    Requirements generation
+    Estimations
+    Planning
+    Documentation
+    Day-to-day sprint execution
+    Defining “done”
+    And of course, testing!
+
+
+
+Launch Phase 1: 8/26/2019
+Launch Phase 2: 9/27/2019
+
+
+TEST SCENARIOS:
+
+LOGOUT:
+
+EC: REP  IS LOGGED IN, AND ATTEMPTS TO LOGOUT USING HTTP_GET:
+HP: REP IS LOGGED IN, AND ATTEMPTS TO LOGOUT USING HTTP_POST:
+
+EC: REP IS NOT LOGGED IN, AND ATTEMPTS TO LOGOUT USING HTTP_GET:
+EC: REP IS NOT LOGGED IN, AND ATTEMPTS TO LOGOUT USING HTTP_POST:
+
+
+
+ 
+
+
