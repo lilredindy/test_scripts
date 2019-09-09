@@ -358,7 +358,7 @@ def play_game():
 		print "Enter your move:", 
 		move = raw_input()
 		#print move
-		x = re.search('r[0-{0}]c[0-{0}]'.format(len(board.data)-1),move)
+		x = re.search('^r[0-{0}]c[0-{0}]$'.format(len(board.data)-1),move) #^ begins, $ ends
 		if (x):
 			if board.is_spot_available(move):
 				board.update(move) #player's move
