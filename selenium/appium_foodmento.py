@@ -258,11 +258,16 @@ class FoodmentoTests(unittest.TestCase):
 
       desired_caps = {
         'platformName': 'iOS',
-        'deviceName': 'iPhone sucks (10.3.3)',
-        'platformVersion':'',
+        #'deviceName': 'Shri\'s iPhone (12.1.2)',
+        #'deviceName': 'iPhone (13.6.1)',
+        'deviceName': 'iPhone sucks',
+        'platformVersion':'10.3',
+        #'udid': 'de5c416ac7fc0204ed28879163b4965ab992380c',
+        #'udid': '0cb04126a11b0c5454b522f0f78720f0dc80d718',
         'udid': '4443449a13de797bc614c5d0fe785168371a7492',
         'automationName': 'XCUITest',
         'bundleId': 'com.foodmento.foodmento',
+        #'bundleId': 'com.apple.calculator',
         #'usePrebuiltWDA': True
       }
       self.driver = webdriver.Remote(command_executor='http://127.0.0.1:4723/wd/hub', desired_capabilities=desired_caps)
