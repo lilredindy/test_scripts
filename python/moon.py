@@ -39,9 +39,9 @@ def moon_phase(month, day, year):
 # put in a date you want ...
 # 26jan2009 is the start of the Chinese New Year for 2009
 # the moon is at its lowest intensity
-month = 1
-day = 14
-year = 1979  # use yyyy format
+month = 12
+day = 17
+year = 1945  # use yyyy format
 date, status, light = moon_phase(month, day, year)
 print("moon phase on %s is %s, light = %d%s" % (date, status, light, '%'))
 ''' result ...
